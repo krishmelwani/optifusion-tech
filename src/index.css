@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-[#5C4A4A] bg-[#FFF5EF]; /* Warm text + Creamy background */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply bg-[#A56F76] hover:bg-[#704F55] text-white font-medium py-2 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-[#F4DDC9] focus:ring-opacity-50;
+  }
+
+  .btn-outline {
+    @apply border border-[#C99979] text-[#C99979] hover:bg-[#F4DDC9] font-medium py-2 px-6 rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#EFD5BC];
+  }
+
+  .input-field {
+    @apply w-full rounded-lg border border-[#CCC] px-4 py-3 focus:border-[#C99979] focus:outline-none focus:ring-1 focus:ring-[#C99979];
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300;
+  }
+
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-6 text-center;
+  }
+
+  .section-subtitle {
+    @apply text-xl text-[#7A6060] mb-12 text-center max-w-3xl mx-auto;
+  }
+}
