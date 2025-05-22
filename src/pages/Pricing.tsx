@@ -143,6 +143,35 @@ const marketingPlans = [
   }
 ];
 
+const contentWritingPlans = [
+  {
+    name: 'Basic',
+    price: '₹2,499',
+    description: 'Powerful, SEO-driven content that grabs attention and fuels growth.',
+    features: [
+      'Up to 1000 words ',
+      'SEO-optimized writing',
+      'Brand voice integration',
+      '2 revisions included '
+    ],
+    isPopular: false,
+    bgColor: 'bg-white'
+  }
+]
+const graphicDesignPlans = [{
+  name: 'Basic',
+  price: '₹1,999',
+  description: 'Eye-catching designs for both digital & print that elevate your brand’s presence.',
+  features: [
+    '3 social media posts ',
+    '1 flyer/poster/banner',
+    'Custom brand-aligned design ',
+    '2 free revisions '
+  ],
+  isPopular: false,
+  bgColor: 'bg-white'
+}]
+
 const PricingPlan = ({ plan, index }: { plan: typeof websitePlans[0]; index: number }) => {
   const isSecondary = plan.isPopular;
 
@@ -181,17 +210,18 @@ const PricingPlan = ({ plan, index }: { plan: typeof websitePlans[0]; index: num
             </li>
           ))}
         </ul>
+        <span className='text-sm text-gray-500'>New clients enjoy tailored strategy + 15% launch discount!</span>
       </div>
 
       <div className="px-8 pb-8 mt-auto">
-        <a 
-          href="https://wa.me/9928610677" 
+        <a
+          href="https://wa.me/9928610677"
           target="_blank"
-          rel="noopener noreferrer" 
+          rel="noopener noreferrer"
           className={`
             flex items-center justify-center gap-2 w-full py-3 px-6 rounded-lg font-medium transition-colors duration-300
-            ${isSecondary 
-              ? 'bg-white text-orange-700 hover:bg-gray-100' 
+            ${isSecondary
+              ? 'bg-white text-orange-700 hover:bg-gray-100'
               : 'bg-orange-700 text-white hover:bg-orange-800'
             }
           `}
@@ -211,44 +241,47 @@ const Pricing = () => {
     <div className="pt-32">
       <section className="section bg-orange-50">
         <div className="container-custom">
-          <SectionHeading 
+          <SectionHeading
             title="Our Pricing Plans"
             subtitle="Transparent pricing options tailored to meet your business needs"
           />
 
-          <div className="max-w-lg mx-auto mb-12">
+          <div className=" mx-auto mb-12">
             <div className="bg-white p-1 rounded-lg shadow-md flex">
-              {['websites', 'apps', 'marketing'].map((category) => (
+              {['websites', 'apps', 'marketing', 'content writing', 'graphic design'].map((category) => (
                 <button
                   key={category}
-                  className={`flex-1 py-3 px-4 rounded-md font-medium transition-colors ${
-                    selectedCategory === category 
-                      ? 'bg-orange-700 text-white' 
-                      : 'text-gray-700 hover:bg-gray-100'
-                  }`}
+                  className={`flex-1 py-3 px-4 rounded-md font-medium transition-colors ${selectedCategory === category
+                    ? 'bg-orange-700 text-white'
+                    : 'text-gray-700 hover:bg-gray-100'
+                    }`}
                   onClick={() => setSelectedCategory(category)}
                 >
-                  {category === 'websites' && 'Websites'}
+                  {category === 'websites' && 'Web Development'}
                   {category === 'apps' && 'Mobile Apps'}
-                  {category === 'marketing' && 'Marketing'}
+                  {category === 'marketing' && 'Digital Marketing'}
+                  {category === 'content writing' && 'Content Writing'}
+                  {category === 'graphic design' && 'Graphic Designing'}
                 </button>
               ))}
             </div>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {(selectedCategory === 'websites' ? websitePlans :
               selectedCategory === 'apps' ? appPlans :
-              marketingPlans).map((plan, index) => (
-                <PricingPlan key={plan.name} plan={plan} index={index} />
-            ))}
+                selectedCategory === 'content writing' ? contentWritingPlans :
+                  selectedCategory === 'graphic design' ? graphicDesignPlans :
+                    marketingPlans).map((plan, index) => (
+                      <PricingPlan key={plan.name} plan={plan} index={index} />
+                    ))}
           </div>
+
         </div>
       </section>
 
       <section className="section bg-white">
         <div className="container-custom">
-          <SectionHeading 
+          <SectionHeading
             title="Frequently Asked Questions"
             subtitle="Find answers to common questions about our services and pricing"
           />
@@ -300,10 +333,10 @@ const Pricing = () => {
               Contact us for a personalized quote tailored to your specific business requirements.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a 
-                href="https://wa.me/9928610677" 
+              <a
+                href="https://wa.me/9928610677"
                 target="_blank"
-                rel="noopener noreferrer" 
+                rel="noopener noreferrer"
                 className="bg-white text-orange-700 font-medium py-3 px-8 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-100 transition-colors duration-300"
               >
                 <MessageCircle size={18} />
