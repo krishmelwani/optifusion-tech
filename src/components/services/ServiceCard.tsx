@@ -34,16 +34,8 @@ const ServiceCard = ({ title, description, detailedDescription, Icon, index }: S
       
       <div className="relative flex-grow">
         <p className={`
-          text-gray-600 transition-opacity duration-300 absolute inset-0
-          ${isHovered ? 'opacity-0' : 'opacity-100'}
-        `}>
+          text-gray-600 transition-opacity duration-300 absolute inset-0`}>
           {description}
-        </p>
-        <p className={`
-          text-gray-600 transition-opacity duration-300 absolute inset-0
-          ${isHovered ? 'opacity-100' : 'opacity-0'}
-        `}>
-          {detailedDescription}
         </p>
       </div>
       

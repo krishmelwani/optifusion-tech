@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import SectionHeading from '../components/common/SectionHeading';
 import ServicesList from '../components/services/ServicesList';
+import ServicesDetailed from '../components/services/ServicesDetailed';
 
 const Services = () => {
   return (
@@ -13,7 +14,7 @@ const Services = () => {
             subtitle="Tailored digital solutions to help your business thrive in the digital era"
           />
           
-          <ServicesList />
+          <ServicesDetailed />
         </div>
       </section>
       
@@ -98,7 +99,7 @@ const Services = () => {
             <p className="text-lg mb-8 text-orange-100">
               Contact us today to discuss your project requirements and get a free consultation.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <div className="flex flex-col items-center sm:flex-row justify-center gap-4">
               <a 
                 href="https://wa.me/9928610677" 
                 target="_blank"
@@ -110,7 +111,7 @@ const Services = () => {
               <button className="bg-orange-500 text-white font-medium py-3 px-8 rounded-lg hover:bg-orange-400 transition-colors duration-300">
                 <a
                   href="mailto:info@optifusiontechnologies.in?subject=Request%20for%20Quote&body=Hi,%20I%20would%20like%20to%20request%20a%20quote%20for%20my%20project."
-                  className="bg-orange-500 text-white font-medium py-3 px-8 rounded-lg hover:bg-orange-400 transition-colors duration-300 inline-block text-center"
+                  className="bg-orange-500 text-white font-medium rounded-lg hover:bg-orange-400 transition-colors duration-300 inline-block text-center"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
