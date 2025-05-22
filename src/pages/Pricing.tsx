@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import SectionHeading from '../components/common/SectionHeading';
-import { Check, MessageCircle } from 'lucide-react';
+import { Check, MessageCircle, Sparkles, ArrowUpRight } from 'lucide-react';
 
 const websitePlans = [
   {
@@ -17,7 +16,7 @@ const websitePlans = [
       'Google Analytics Setup'
     ],
     isPopular: false,
-    bgColor: 'bg-white',
+    gradient: 'from-orange-500 to-pink-500',
     topup: "New users get 15% OFF - final pricing shared after requirement analysis"
   },
   {
@@ -35,8 +34,8 @@ const websitePlans = [
       'Performance Optimization'
     ],
     isPopular: true,
-    bgColor: 'bg-orange-700 text-white',
-    Topup: "New users get 15% OFF - final pricing shared after requirement analysis"
+    gradient: 'from-purple-600 to-blue-600',
+    topup: "New users get 15% OFF - final pricing shared after requirement analysis"
   },
   {
     name: 'Custom',
@@ -53,7 +52,7 @@ const websitePlans = [
       'Dedicated Project Manager'
     ],
     isPopular: false,
-    bgColor: 'bg-white',
+    gradient: 'from-orange-500 to-pink-500',
     topup: "New users get 15% OFF - final pricing shared after requirement analysis"
   }
 ];
@@ -70,7 +69,7 @@ const appPlans = [
       '1 Month Support'
     ],
     isPopular: false,
-    bgColor: 'bg-white',
+    gradient: 'from-orange-500 to-pink-500',
     topup: 'Ideal for website pages, blogs, product descriptions.'
   },
   {
@@ -85,7 +84,8 @@ const appPlans = [
       'Analytics Dashboard'
     ],
     isPopular: true,
-    bgColor: 'bg-orange-700 text-white'
+    gradient: 'from-purple-600 to-blue-600',
+    topup: 'Ideal for website pages, blogs, product descriptions.'
   },
   {
     name: 'Custom App',
@@ -99,7 +99,8 @@ const appPlans = [
       'Admin Panel'
     ],
     isPopular: false,
-    bgColor: 'bg-white'
+    gradient: 'from-orange-500 to-pink-500',
+    topup: 'Ideal for website pages, blogs, product descriptions.'
   }
 ];
 
@@ -115,7 +116,7 @@ const marketingPlans = [
       'Performance Report'
     ],
     isPopular: false,
-    bgColor: 'bg-white',
+    gradient: 'from-orange-500 to-pink-500',
     topup: 'New clients enjoy tailored strategy + 15% launch discount!'
   },
   {
@@ -130,8 +131,8 @@ const marketingPlans = [
       'Monthly Analytics'
     ],
     isPopular: true,
-    bgColor: 'bg-orange-700 text-white',
-
+    gradient: 'from-purple-600 to-blue-600',
+    topup: 'New clients enjoy tailored strategy + 15% launch discount!'
   },
   {
     name: 'Custom Strategy',
@@ -145,9 +146,8 @@ const marketingPlans = [
       'Dedicated Manager'
     ],
     isPopular: false,
-    bgColor: 'bg-white',
+    gradient: 'from-orange-500 to-pink-500',
     topup: 'New clients enjoy tailored strategy + 15% launch discount!'
-
   }
 ];
 
@@ -163,14 +163,15 @@ const contentWritingPlans = [
       '2 revisions included '
     ],
     isPopular: false,
-    bgColor: 'bg-white',
+    gradient: 'from-orange-500 to-pink-500',
     topup: 'Ideal for website pages, blogs, product descriptions.'
   }
-]
+];
+
 const graphicDesignPlans = [{
   name: 'Basic',
   price: '₹4,999',
-  description: 'Eye-catching designs for both digital & print that elevate your brand’s presence.',
+  description: "Eye-catching designs for both digital & print that elevate your brand's presence.",
   features: [
     '3 social media posts ',
     '1 flyer/poster/banner',
@@ -178,49 +179,49 @@ const graphicDesignPlans = [{
     '2 free revisions '
   ],
   isPopular: false,
-  bgColor: 'bg-white',
+  gradient: 'from-orange-500 to-pink-500',
   topup: ' Logo design available at discounted bundle rates.'
-}]
+}];
 
 const PricingPlan = ({ plan, index }: { plan: typeof websitePlans[0]; index: number }) => {
-  const isSecondary = plan.isPopular;
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className={`rounded-2xl shadow-lg overflow-hidden ${plan.bgColor} transform transition-transform duration-300 hover:scale-[1.02] h-full flex flex-col`}
+      className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 transform transition-all duration-500 hover:scale-[1.02] h-full flex flex-col"
     >
       {plan.isPopular && (
-        <div className="bg-orange-600 text-white text-center py-2 text-sm font-medium">
+        <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white text-center py-2 text-sm font-medium rounded-t-2xl">
           MOST POPULAR
         </div>
       )}
 
       <div className="p-8 flex-grow">
-        <h3 className={`text-2xl font-bold mb-2 ${isSecondary ? 'text-white' : 'text-gray-900'}`}>{plan.name}</h3>
-        <p className={`mb-6 ${isSecondary ? 'text-orange-200' : 'text-gray-600'}`}>{plan.description}</p>
+        <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+          {plan.name}
+        </h3>
+        <p className="text-gray-600 mb-6">{plan.description}</p>
 
-        <div className={`text-4xl font-bold mb-6 ${isSecondary ? 'text-white' : 'text-gray-900'}`}>
+        <div className="text-4xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
           {plan.price}
-          {plan.name !== 'Custom' && <span className={`text-base font-normal ${isSecondary ? 'text-orange-200' : 'text-gray-500'}`}> / project</span>}
+          {plan.name !== 'Custom' && <span className="text-base font-normal text-gray-500"> / project</span>}
         </div>
 
         <ul className="space-y-3 mb-8">
           {plan.features.map((feature, idx) => (
             <li key={idx} className="flex items-start">
-              <span className={`mr-2 mt-1 ${isSecondary ? 'text-orange-200' : 'text-orange-700'}`}>
+              <span className="mr-2 mt-1 text-orange-500">
                 <Check size={16} />
               </span>
-              <span className={isSecondary ? 'text-orange-100' : 'text-gray-600'}>
+              <span className="text-gray-600">
                 {feature}
               </span>
             </li>
           ))}
         </ul>
-        <span className='text-sm text-gray-500'>{plan.topup}</span>
+        <span className="text-sm text-gray-500">{plan.topup}</span>
       </div>
 
       <div className="px-8 pb-8 mt-auto">
@@ -229,15 +230,13 @@ const PricingPlan = ({ plan, index }: { plan: typeof websitePlans[0]; index: num
           target="_blank"
           rel="noopener noreferrer"
           className={`
-            flex items-center justify-center gap-2 w-full py-3 px-6 rounded-lg font-medium transition-colors duration-300
-            ${isSecondary
-              ? 'bg-white text-orange-700 hover:bg-gray-100'
-              : 'bg-orange-700 text-white hover:bg-orange-800'
-            }
+            group flex items-center justify-center gap-2 w-full py-3 px-6 rounded-xl font-medium transition-all duration-300
+            bg-gradient-to-r ${plan.gradient} text-white hover:shadow-lg hover:shadow-orange-500/30
           `}
         >
           <MessageCircle size={18} />
           Chat Now
+          <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
         </a>
       </div>
     </motion.div>
@@ -249,22 +248,44 @@ const Pricing = () => {
 
   return (
     <div className="pt-32">
-      <section className="section bg-orange-50">
-        <div className="container-custom">
-          <SectionHeading
-            title="Our Pricing Plans"
-            subtitle="Transparent pricing options tailored to meet your business needs"
-          />
+      <section className="relative py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-orange-400/20 to-pink-400/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"></div>
+        </div>
 
-          <div className=" mx-auto mb-12">
-            <div className="bg-white p-1 rounded-lg shadow-md flex">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <Sparkles className="w-4 h-4" />
+              Pricing Plans
+            </div>
+            <h2 className="text-4xl md:text-6xl font-black mb-6">
+              <span className="bg-gradient-to-r from-gray-900 via-purple-900 to-orange-900 bg-clip-text text-transparent">
+                Transparent Pricing
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">
+                Tailored to Your Needs
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Choose the perfect plan for your business needs. All plans include our commitment to quality and support.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto mb-12">
+            <div className="bg-white/80 backdrop-blur-sm p-1 rounded-xl shadow-lg flex">
               {['websites', 'apps', 'marketing', 'content writing', 'graphic design'].map((category) => (
                 <button
                   key={category}
-                  className={`flex-1 py-3 px-4 rounded-md font-medium transition-colors ${selectedCategory === category
-                    ? 'bg-orange-700 text-white'
-                    : 'text-gray-700 hover:bg-gray-100'
-                    }`}
+                  className={`flex-1 py-3 px-4 rounded-lg font-medium transition-all duration-300 ${
+                    selectedCategory === category
+                      ? 'bg-gradient-to-r from-orange-500 to-pink-500 text-white shadow-lg'
+                      : 'text-gray-700 hover:bg-gray-100'
+                  }`}
                   onClick={() => setSelectedCategory(category)}
                 >
                   {category === 'websites' && 'Web Development'}
@@ -276,6 +297,7 @@ const Pricing = () => {
               ))}
             </div>
           </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {(selectedCategory === 'websites' ? websitePlans :
               selectedCategory === 'apps' ? appPlans :
@@ -285,18 +307,34 @@ const Pricing = () => {
                       <PricingPlan key={plan.name} plan={plan} index={index} />
                     ))}
           </div>
-
         </div>
       </section>
 
-      <section className="section bg-white">
-        <div className="container-custom">
-          <SectionHeading
-            title="Frequently Asked Questions"
-            subtitle="Find answers to common questions about our services and pricing"
-          />
+      <section className="relative py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-orange-400/20 to-pink-400/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"></div>
+        </div>
 
-          <div className="max-w-3xl mx-auto mt-12 space-y-6">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <Sparkles className="w-4 h-4" />
+              FAQ
+            </div>
+            <h2 className="text-4xl md:text-6xl font-black mb-6">
+              <span className="bg-gradient-to-r from-gray-900 via-purple-900 to-orange-900 bg-clip-text text-transparent">
+                Frequently Asked
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">
+                Questions
+              </span>
+            </h2>
+          </div>
+
+          <div className="max-w-3xl mx-auto space-y-6">
             {[
               {
                 question: 'What payment methods do you accept?',
@@ -325,9 +363,11 @@ const Pricing = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="bg-gray-50 rounded-lg p-6"
+                className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300"
               >
-                <h4 className="text-lg font-semibold mb-3">{faq.question}</h4>
+                <h4 className="text-lg font-semibold mb-3 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                  {faq.question}
+                </h4>
                 <p className="text-gray-600">{faq.answer}</p>
               </motion.div>
             ))}
@@ -335,25 +375,34 @@ const Pricing = () => {
         </div>
       </section>
 
-      <section className="section bg-orange-700 text-white">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Need a Custom Solution?</h2>
-            <p className="text-lg mb-8 text-orange-200">
-              Contact us for a personalized quote tailored to your specific business requirements.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a
-                href="https://wa.me/9928610677"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white text-orange-700 font-medium py-3 px-8 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-100 transition-colors duration-300"
-              >
-                <MessageCircle size={18} />
-                Chat on WhatsApp
-              </a>
-            </div>
+      <section className="relative py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-orange-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <Sparkles className="w-4 h-4" />
+            Custom Solutions
           </div>
+          <h2 className="text-4xl md:text-6xl font-black mb-6 text-white">
+            Need a Custom Solution?
+          </h2>
+          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            Contact us for a personalized quote tailored to your specific business requirements.
+          </p>
+          <a
+            href="https://wa.me/9928610677"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white font-medium py-4 px-8 rounded-xl hover:shadow-lg hover:shadow-orange-500/30 transition-all duration-300"
+          >
+            <MessageCircle size={20} />
+            Chat on WhatsApp
+            <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+          </a>
         </div>
       </section>
     </div>
