@@ -198,43 +198,43 @@ const PricingPlan = ({ plan, index }: { plan: typeof websitePlans[0]; index: num
         </div>
       )}
 
-      <div className="p-8 flex-grow">
-        <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+      <div className="p-4 sm:p-6 lg:p-8 flex-grow">
+        <h3 className="text-xl sm:text-2xl font-bold mb-2 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
           {plan.name}
         </h3>
-        <p className="text-gray-600 mb-6">{plan.description}</p>
+        <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">{plan.description}</p>
 
-        <div className="text-4xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+        <div className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
           {plan.price}
-          {plan.name !== 'Custom' && <span className="text-base font-normal text-gray-500"> / project</span>}
+          {plan.name !== 'Custom' && <span className="text-sm sm:text-base font-normal text-gray-500"> / project</span>}
         </div>
 
-        <ul className="space-y-3 mb-8">
+        <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
           {plan.features.map((feature, idx) => (
             <li key={idx} className="flex items-start">
               <span className="mr-2 mt-1 text-orange-500">
                 <Check size={16} />
               </span>
-              <span className="text-gray-600">
+              <span className="text-sm sm:text-base text-gray-600">
                 {feature}
               </span>
             </li>
           ))}
         </ul>
-        <span className="text-sm text-gray-500">{plan.topup}</span>
+        <span className="text-xs sm:text-sm text-gray-500">{plan.topup}</span>
       </div>
 
-      <div className="px-8 pb-8 mt-auto">
+      <div className="px-4 sm:px-6 lg:px-8 pb-4 sm:pb-6 lg:pb-8 mt-auto">
         <a
           href="https://wa.me/9928610677"
           target="_blank"
           rel="noopener noreferrer"
           className={`
-            group flex items-center justify-center gap-2 w-full py-3 px-6 rounded-xl font-medium transition-all duration-300
+            group flex items-center justify-center gap-2 w-full py-2 sm:py-3 px-4 sm:px-6 rounded-xl font-medium transition-all duration-300 text-sm sm:text-base
             bg-gradient-to-r ${plan.gradient} text-white hover:shadow-lg hover:shadow-orange-500/30
           `}
         >
-          <MessageCircle size={18} />
+          <MessageCircle size={16} className="sm:w-5 sm:h-5" />
           Chat Now
           <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
         </a>
@@ -277,11 +277,11 @@ const Pricing = () => {
           </div>
 
           <div className="max-w-4xl mx-auto mb-12">
-            <div className="bg-white/80 backdrop-blur-sm p-1 rounded-xl shadow-lg flex">
+            <div className="bg-white/80 backdrop-blur-sm p-1 rounded-xl shadow-lg flex flex-col sm:flex-row">
               {['websites', 'apps', 'marketing', 'content writing', 'graphic design'].map((category) => (
                 <button
                   key={category}
-                  className={`flex-1 py-3 px-4 rounded-lg font-medium transition-all duration-300 ${
+                  className={`flex-1 py-2 sm:py-3 px-2 sm:px-4 rounded-lg font-medium transition-all duration-300 text-sm sm:text-base ${
                     selectedCategory === category
                       ? 'bg-gradient-to-r from-orange-500 to-pink-500 text-white shadow-lg'
                       : 'text-gray-700 hover:bg-gray-100'
@@ -298,7 +298,7 @@ const Pricing = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {(selectedCategory === 'websites' ? websitePlans :
               selectedCategory === 'apps' ? appPlans :
                 selectedCategory === 'content writing' ? contentWritingPlans :
