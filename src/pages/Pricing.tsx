@@ -17,7 +17,8 @@ const websitePlans = [
       'Google Analytics Setup'
     ],
     isPopular: false,
-    bgColor: 'bg-white'
+    bgColor: 'bg-white',
+    topup: "New users get 15% OFF - final pricing shared after requirement analysis"
   },
   {
     name: 'Premium',
@@ -34,7 +35,8 @@ const websitePlans = [
       'Performance Optimization'
     ],
     isPopular: true,
-    bgColor: 'bg-orange-700 text-white'
+    bgColor: 'bg-orange-700 text-white',
+    Topup: "New users get 15% OFF - final pricing shared after requirement analysis"
   },
   {
     name: 'Custom',
@@ -51,7 +53,8 @@ const websitePlans = [
       'Dedicated Project Manager'
     ],
     isPopular: false,
-    bgColor: 'bg-white'
+    bgColor: 'bg-white',
+    topup: "New users get 15% OFF - final pricing shared after requirement analysis"
   }
 ];
 
@@ -67,7 +70,8 @@ const appPlans = [
       '1 Month Support'
     ],
     isPopular: false,
-    bgColor: 'bg-white'
+    bgColor: 'bg-white',
+    topup: 'Ideal for website pages, blogs, product descriptions.'
   },
   {
     name: 'Advanced App',
@@ -111,7 +115,8 @@ const marketingPlans = [
       'Performance Report'
     ],
     isPopular: false,
-    bgColor: 'bg-white'
+    bgColor: 'bg-white',
+    topup: 'New clients enjoy tailored strategy + 15% launch discount!'
   },
   {
     name: 'Growth Pack',
@@ -125,7 +130,8 @@ const marketingPlans = [
       'Monthly Analytics'
     ],
     isPopular: true,
-    bgColor: 'bg-orange-700 text-white'
+    bgColor: 'bg-orange-700 text-white',
+
   },
   {
     name: 'Custom Strategy',
@@ -139,14 +145,16 @@ const marketingPlans = [
       'Dedicated Manager'
     ],
     isPopular: false,
-    bgColor: 'bg-white'
+    bgColor: 'bg-white',
+    topup: 'New clients enjoy tailored strategy + 15% launch discount!'
+
   }
 ];
 
 const contentWritingPlans = [
   {
     name: 'Basic',
-    price: '₹2,499',
+    price: '₹5,299',
     description: 'Powerful, SEO-driven content that grabs attention and fuels growth.',
     features: [
       'Up to 1000 words ',
@@ -155,12 +163,13 @@ const contentWritingPlans = [
       '2 revisions included '
     ],
     isPopular: false,
-    bgColor: 'bg-white'
+    bgColor: 'bg-white',
+    topup: 'Ideal for website pages, blogs, product descriptions.'
   }
 ]
 const graphicDesignPlans = [{
   name: 'Basic',
-  price: '₹1,999',
+  price: '₹4,999',
   description: 'Eye-catching designs for both digital & print that elevate your brand’s presence.',
   features: [
     '3 social media posts ',
@@ -169,7 +178,8 @@ const graphicDesignPlans = [{
     '2 free revisions '
   ],
   isPopular: false,
-  bgColor: 'bg-white'
+  bgColor: 'bg-white',
+  topup: ' Logo design available at discounted bundle rates.'
 }]
 
 const PricingPlan = ({ plan, index }: { plan: typeof websitePlans[0]; index: number }) => {
@@ -210,7 +220,7 @@ const PricingPlan = ({ plan, index }: { plan: typeof websitePlans[0]; index: num
             </li>
           ))}
         </ul>
-        <span className='text-sm text-gray-500'>New clients enjoy tailored strategy + 15% launch discount!</span>
+        <span className='text-sm text-gray-500'>{plan.topup}</span>
       </div>
 
       <div className="px-8 pb-8 mt-auto">
