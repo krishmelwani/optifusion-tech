@@ -1,64 +1,58 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
-import type { FC } from "react"
+import type { LucideIcon } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
+import { Link } from "react-router-dom"
 
 interface ServiceCardProps {
   title: string
   description: string
-  Icon: FC<{ size?: number }>
+  Icon: LucideIcon
   index: number
+  gradient?: string
 }
 
-const ServiceCard = ({ title, description, Icon, index }: ServiceCardProps) => {
+const ServiceCard = ({ title, description, Icon, index, gradient = 'from-orange-500 to-pink-500' }: ServiceCardProps) => {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      viewport={{ once: true }}
-      className="card p-6 h-full flex flex-col bg-white rounded-lg shadow-sm"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.3 }}
+      viewport={{ once: true, margin: "-50px" }}
+      className="group relative rounded-3xl p-8 bg-white/80 backdrop-blur-sm shadow-lg border border-white/20"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div
-        className={`
-          rounded-lg w-16 h-16 flex items-center justify-center mb-5
-          ${isHovered ? "bg-neutral-800 text-white" : "bg-rose-100 text-rose-500"}
-          transition-colors duration-300
-        `}
-      >
-        <Icon size={28} />
+      {/* Service Icon */}
+      <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-r ${gradient} mb-6`}>
+        <Icon className="w-8 h-8 text-white" />
       </div>
 
-      <h3 className="text-xl font-bold mb-3">{title}</h3>
+      {/* Service Title */}
+      <h3 className="text-2xl font-bold mb-4 text-gray-900 group-hover:text-orange-600">
+        {title}
+      </h3>
 
-      <div className="relative flex-grow">
-        <p className="text-gray-600 mb-4">{description}</p>
-      </div>
+      {/* Service Description */}
+      <p className="text-gray-600 leading-relaxed mb-6">
+        {description}
+      </p>
 
-      <div className="mt-auto pt-4 border-t border-gray-100">
-        <a
-          href="/services"
-          className={`
-    font-medium transition-colors duration-300 flex items-center
-    ${isHovered ? "text-neutral-800" : "text-rose-500"}
-  `}
+      {/* Action Button */}
+      <div className="mt-auto">
+        <Link
+          to="/services"
+          className="flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-medium px-6 py-3 rounded-xl"
         >
-          Know more
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className={`w-4 h-4 ml-1 transition-transform duration-300 ${isHovered ? "translate-x-1" : ""}`}
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </a>
-
+          Get Started
+          <ArrowUpRight className="w-4 h-4" />
+        </Link>
       </div>
+
+      {/* Hover Effect Overlay */}
+      <div className={`absolute inset-0 bg-gradient-to-r ${gradient} opacity-0 group-hover:opacity-5 rounded-3xl pointer-events-none`}></div>
     </motion.div>
   )
 }

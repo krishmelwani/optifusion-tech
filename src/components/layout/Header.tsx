@@ -16,6 +16,11 @@ const Header = ({ scrolled, openServicesModal }: HeaderProps) => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
+  const handleGetStarted = () => {
+    setMobileMenuOpen(false);
+    window.open('https://wa.me/9928610677', '_blank');
+  };
+
   return (
     <header 
       className={`fixed w-full z-50 transition-all duration-300 ${
@@ -52,7 +57,7 @@ const Header = ({ scrolled, openServicesModal }: HeaderProps) => {
         </nav>
 
         <button 
-          onClick={openServicesModal}
+          onClick={handleGetStarted}
           className="hidden lg:flex bg-rose-500 text-white px-5 py-2 rounded-lg hover:bg-rose-600 transition-all items-center gap-2"
         >
           Get Started <CornerUpRight size={18} />
@@ -107,10 +112,7 @@ const Header = ({ scrolled, openServicesModal }: HeaderProps) => {
             ))}
 
             <button 
-              onClick={() => {
-                setMobileMenuOpen(false);
-                openServicesModal();
-              }}
+              onClick={handleGetStarted}
               className="bg-rose-500 text-white w-full mt-4 px-4 py-2 rounded-lg flex justify-center items-center gap-2 hover:bg-rose-600 transition-all"
             >
               Get Started <CornerUpRight size={18} />

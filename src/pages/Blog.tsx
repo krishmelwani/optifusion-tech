@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import SectionHeading from '../components/common/SectionHeading';
-import { Search, ArrowRight } from 'lucide-react';
+import { Search, ArrowRight, Sparkles, MessageSquare } from 'lucide-react';
 
 // Blog post data
 const blogPosts = [
@@ -95,13 +94,31 @@ const Blog = () => {
 
   return (
     <div className="pt-32">
-      {/* Section 1: Blog Posts */}
-      <section className="section bg-[#FDF2EC]">
-        <div className="container-custom">
-          <SectionHeading 
-            title="Blog & Insights"
-            subtitle="Latest insights, tips, and thought leadership from our experts"
-          />
+      {/* Hero Section */}
+      <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-50">
+          <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-orange-400/10 to-pink-400/10 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-2xl"></div>
+        </div>
+        <div className="container-custom relative">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <Sparkles className="w-4 h-4" />
+              Blog & Insights
+            </div>
+            <h1 className="text-4xl md:text-6xl font-black mb-6">
+              <span className="bg-gradient-to-r from-gray-900 via-purple-900 to-orange-900 bg-clip-text text-transparent">
+                Latest Insights
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">
+                From Our Experts
+              </span>
+            </h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Discover the latest trends, tips, and thought leadership in technology and digital solutions.
+            </p>
+          </div>
 
           {/* Search Bar */}
           <div className="max-w-2xl mx-auto mb-12">
@@ -109,7 +126,7 @@ const Blog = () => {
               <input
                 type="text"
                 placeholder="Search articles..."
-                className="input-field pl-12"
+                className="w-full bg-white/80 backdrop-blur-sm border border-gray-100 rounded-xl py-4 pl-12 pr-4 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500/20 transition-all duration-300"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -118,8 +135,16 @@ const Blog = () => {
               </div>
             </form>
           </div>
+        </div>
+      </section>
 
-          {/* Blog Posts Grid */}
+      {/* Blog Posts Section */}
+      <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-50">
+          <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-r from-orange-400/10 to-pink-400/10 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-2xl"></div>
+        </div>
+        <div className="container-custom relative">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.map((post, index) => (
               <motion.article
@@ -127,16 +152,16 @@ const Blog = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 % 0.5 }}
-                className="card overflow-hidden flex flex-col h-full"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 group"
               >
                 <div className="relative h-48 overflow-hidden">
                   <img 
                     src={post.image} 
                     alt={post.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute top-0 right-0 bg-neutral-800 text-white px-3 py-1 text-sm">
+                  <div className="absolute top-4 right-4 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-3 py-1 rounded-full text-sm font-medium">
                     {post.category}
                   </div>
                 </div>
@@ -146,13 +171,13 @@ const Blog = () => {
                     <span className="mx-2">•</span>
                     <span>{post.readTime}</span>
                   </div>
-                  <h3 className="text-xl font-bold mb-3 hover:text-neutral-800 transition-colors">
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-orange-500 transition-colors">
                     {post.title}
                   </h3>
                   <p className="text-gray-600 mb-4">{post.excerpt}</p>
                   <div className="mt-auto flex items-center justify-between">
                     <div className="flex items-center">
-                      <div className="w-8 h-8 rounded-full overflow-hidden mr-2">
+                      <div className="w-8 h-8 rounded-full overflow-hidden mr-2 ring-2 ring-orange-500/20">
                         <img 
                           src={`https://i.pravatar.cc/150?u=${post.id}`} 
                           alt={post.author} 
@@ -161,8 +186,9 @@ const Blog = () => {
                       </div>
                       <span className="text-sm font-medium">{post.author}</span>
                     </div>
-                    <button className="text-neutral-700 font-medium hover:text-neutral-900 transition-colors flex items-center">
-                      Read More <ArrowRight size={16} className="ml-1" />
+                    <button className="text-orange-500 font-medium hover:text-orange-600 transition-colors flex items-center group">
+                      Read More 
+                      <ArrowRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform duration-300" />
                     </button>
                   </div>
                 </div>
@@ -172,44 +198,50 @@ const Blog = () => {
         </div>
       </section>
 
-      {/* Section 2: Newsletter */}
-     <section className="section bg-[#EB5200] text-white">
-
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Subscribe to Our Newsletter</h2>
-              <p className="text-[#EFD5BC] mb-8">
-                Stay updated with our latest articles, industry insights, and company news.
-              </p>
-              <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4">
-                <input
-                  type="email"
-                  placeholder="Your email address"
-                  className="flex-grow rounded-lg py-3 px-4 outline-none focus:ring-1 focus:ring-[#F4DDC9] text-gray-800"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-                <button 
-                  type="submit" 
-                  className="bg-[#A56F76] hover:bg-[#704F55] text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300 whitespace-nowrap"
-                >
-                  Subscribe Now
-                </button>
-              </form>
-              {subscribed && (
-                <p className="text-[#EFD5BC] mt-4">
-                  Thanks for subscribing! We'll keep you updated.
-                </p>
-              )}
-            </motion.div>
+      {/* Newsletter Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-20 w-64 h-64 bg-orange-500/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-20 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-medium mb-8">
+            <Sparkles className="w-4 h-4" />
+            Stay Updated
           </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Subscribe to Our Newsletter
+          </h2>
+          <p className="text-xl text-gray-300 mb-10 leading-relaxed">
+            Stay updated with our latest articles, industry insights, and company news.
+          </p>
+          <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+            <input
+              type="email"
+              placeholder="Your email address"
+              className="flex-grow bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl py-4 px-6 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500/20 transition-all duration-300"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <button 
+              type="submit" 
+              className="group bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-bold px-6 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/30 flex items-center justify-center gap-2 whitespace-nowrap"
+            >
+              <MessageSquare className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+              Subscribe Now
+            </button>
+          </form>
+          {subscribed && (
+            <motion.p 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-orange-400 mt-4"
+            >
+              Thanks for subscribing! We'll keep you updated.
+            </motion.p>
+          )}
         </div>
       </section>
     </div>

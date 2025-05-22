@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from './logo.png';  // Make sure logo.png is in the same folder as this file
 

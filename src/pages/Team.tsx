@@ -1,159 +1,311 @@
-import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import { useState } from 'react';
-import SectionHeading from '../components/common/SectionHeading';
+import { 
+  Star, 
+  Sparkles, 
+  Users, 
+  Target, 
+  Heart, 
+  Lightbulb, 
+  Shield, 
+  BookOpen,
+  ArrowUpRight,
+  Award,
+  Zap,
+  Globe
+} from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-// Team Members Data
-const teamMembers = [
+interface TeamMember {
+  id: number;
+  name: string;
+  role: string;
+  image: string;
+  bio: string;
+}
+
+const teamMembers: TeamMember[] = [
   {
     id: 1,
     name: 'Krish Melwani',
     role: 'CEO & Founder',
-    image: 'https://ik.imagekit.io/6ilngyaqa/1747550595176-WhatsApp_Image_2025-05-18_at_12.11.46_7dd7323a_VqmZRh_wxP.jpg',
-    bio: 'Krish Melwani founded Optifusion Technologies in 2022 with a vision to innovate and transform the digital landscape. With a passion for technology and enterpreneurship, he leads the company towards delivering cutting-edge solutions that empower businesses worldwide.'
+    image: '/assets/ceo-optifusion.jpeg',
+    bio: 'Krish Melwani founded Optifusion Technologies in 2022 with a vision to innovate and transform the digital landscape. With a passion for technology, he leads the company towards delivering cutting-edge solutions that empower businesses worldwide.'
   },
   {
     id: 2,
     name: 'Harshita Mishra',
     role: 'HR Manager',
     image: 'https://ik.imagekit.io/6ilngyaqa/1747549466955-WhatsApp_Image_2025-05-18_at_11.54.14_5341521a_RwysGYi_Zv.jpg',
-    bio: 'Harshita Mishra is the HR Manager at Optifusion Technologies, responsible for overseeing all human resource functions. She manages recruitment, employee relations, and ensures a positive work environment to support the company’s growth and success. Additionally, she is actively involved in developing the company’s official website to showcase our services, team, and innovations with a user-friendly and modern design.'
+    bio: 'Harshita Mishra is the HR Manager at Optifusion Technologies, responsible for overseeing all human resource functions. She manages recruitment, employee relations, and ensures a positive work environment to support the company\'s growth and success.'
   },
   {
     id: 3,
-    name: 'Anshika Gupta ',
-    role: 'Head of Marketing',
-    image: 'https://ik.imagekit.io/6ilngyaqa/1747550732550-WhatsApp_Image_2025-05-18_at_12.15.12_2d6be74a_FrkoEfR0JO.jpg',
-    bio: 'Anshika Gupta is the Head of Marketing @ Optifusion Technologies, steering the company’s brand strategy, demand-generation campaigns, and digital presence. With a data-driven mindset and a flair for creative storytelling, she crafts marketing initiatives that amplify Optifusion’s voice across global markets, strengthen customer engagement, and fuel sustainable growth.'
+    name: 'Prince',
+    role: 'Software Engineer',
+    image: '/assets/prince-optifusion.jpeg',
+    bio: 'Prince is a skilled Software Engineer at Optifusion Technologies, specializing in developing robust and scalable applications. With expertise in modern programming languages and frameworks, he contributes to building innovative solutions.'
   },
   {
     id: 4,
-    name: 'Pratyaksha Pandey',
-    role: 'HR Executive',
-    image: 'https://ik.imagekit.io/6ilngyaqa/1747554466336-WhatsApp_Image_2025-05-18_at_12.40.54_5f2eeb59_zUmSvLDBn.jpg',
-    bio: 'Pratyksha Pandey is an HR Executive at Optifusion Technologies, responsible for supporting recruitment, onboarding, and employee engagement initiatives. With strong communication skills and a detail-oriented mindset, she plays a key role in fostering a collaborative and productive workplace culture.'
+    name: 'Sourabh',
+    role: 'Full Stack Developer',
+    image: '/assets/sourav-optifusion.jpeg',
+    bio: 'Sourabh is a talented Full Stack Developer at Optifusion Technologies, proficient in both frontend and backend technologies. He plays a crucial role in developing end-to-end solutions with a focus on performance and user experience.'
   }
-]; 
+];
 
-const TeamMember = ({ member }: { member: typeof teamMembers[0] }) => {
+const values = [
+  {
+    title: 'Excellence',
+    description: 'We strive for excellence in everything we do, from the quality of our work to how we interact with clients and team members.',
+    icon: Award,
+    gradient: 'from-yellow-400 to-orange-500'
+  },
+  {
+    title: 'Innovation',
+    description: 'We embrace creativity and innovative thinking to solve complex problems and deliver cutting-edge solutions.',
+    icon: Lightbulb,
+    gradient: 'from-blue-400 to-purple-500'
+  },
+  {
+    title: 'Integrity',
+    description: 'We maintain the highest level of integrity in our work, being honest, transparent, and ethical in all our dealings.',
+    icon: Shield,
+    gradient: 'from-green-400 to-blue-500'
+  },
+  {
+    title: 'Collaboration',
+    description: 'We believe in the power of teamwork and foster a collaborative environment where diverse ideas are valued.',
+    icon: Users,
+    gradient: 'from-pink-400 to-red-500'
+  },
+  {
+    title: 'Client Success',
+    description: 'We measure our success by the success of our clients and are committed to helping them achieve their goals.',
+    icon: Target,
+    gradient: 'from-purple-400 to-pink-500'
+  },
+  {
+    title: 'Continuous Learning',
+    description: 'We encourage continuous learning and personal growth, staying updated with the latest technologies and industry trends.',
+    icon: BookOpen,
+    gradient: 'from-indigo-400 to-blue-500'
+  }
+];
+
+const TeamMember = ({ member, index }: { member: TeamMember; index: number }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="bg-white rounded-xl shadow-md overflow-hidden group"
+    <div
+      className="group relative"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      style={{
+        animationDelay: `${index * 150}ms`,
+        animation: 'fadeInUp 0.8s ease-out forwards'
+      }}
     >
-      <div className="relative overflow-hidden h-64">
-        <img 
-          src={member.image} 
-          alt={member.name} 
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-          <div className="p-6">
-            <p className="text-white text-sm">{member.bio}</p>
+      <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/20">
+        {/* Image Section */}
+        <div className="relative h-80 overflow-hidden">
+          <img 
+            src={member.image} 
+            alt={member.name} 
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          
+          {/* Floating Badge */}
+          <div className="absolute top-4 right-4 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+            TEAM
           </div>
+        </div>
+
+        {/* Content Section */}
+        <div className="p-6">
+          <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors duration-300">
+            {member.name}
+          </h3>
+          <p className="text-orange-500 font-medium mb-4">{member.role}</p>
+          <p className="text-gray-600 text-sm leading-relaxed">
+            {member.bio}
+          </p>
+        </div>
+
+        {/* Animated Border */}
+        <div className={`absolute inset-0 rounded-3xl transition-opacity duration-300 ${
+          isHovered ? 'opacity-100' : 'opacity-0'
+        }`}>
+          <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-orange-500/20 via-pink-500/20 to-blue-500/20 blur-sm"></div>
         </div>
       </div>
-      <div className="p-6">
-        <h3 className="text-xl font-bold">{member.name}</h3>
-        <p className="text-amber-600">{member.role}</p>
-      </div>
-    </motion.div>
-  );
-};
-
-
-const Team = () => {
-  return (
-    <div className="pt-32">
-      {/* Team Section */}
-      <section className="section bg-white">
-        <div className="container-custom">
-          <SectionHeading 
-            title="Meet Our Team"
-            subtitle="The talented individuals behind our success"
-          />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
-            {teamMembers.map((member) => (
-              <TeamMember key={member.id} member={member} />
-            ))}
-          </div>
-        </div>
-      </section>
-      
-      {/* Values Section */}
-      <section className="section bg-cream">
-        <div className="container-custom">
-          <SectionHeading 
-            title="Our Values"
-            subtitle="The principles that guide our work and culture"
-          />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-            {[
-              {
-                title: 'Excellence',
-                description: 'We strive for excellence in everything we do, from the quality of our work to how we interact with clients and team members.'
-              },
-              {
-                title: 'Innovation',
-                description: 'We embrace creativity and innovative thinking to solve complex problems and deliver cutting-edge solutions.'
-              },
-              {
-                title: 'Integrity',
-                description: 'We maintain the highest level of integrity in our work, being honest, transparent, and ethical in all our dealings.'
-              },
-              {
-                title: 'Collaboration',
-                description: 'We believe in the power of teamwork and foster a collaborative environment where diverse ideas are valued.'
-              },
-              {
-                title: 'Client Success',
-                description: 'We measure our success by the success of our clients and are committed to helping them achieve their goals.'
-              },
-              {
-                title: 'Continuous Learning',
-                description: 'We encourage continuous learning and personal growth, staying updated with the latest technologies and industry trends.'
-              }
-            ].map((value, index) => (
-              <motion.div
-                key={value.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="bg-white rounded-lg p-6 shadow-sm"
-              >
-                <h4 className="text-xl font-bold text-amber-600 mb-3">{value.title}</h4>
-                <p className="text-gray-600">{value.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-      
-      {/* Join Us Section */}
-      <section className="section bg-amber-600 text-white">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Want to Join Our Team?</h2>
-            <p className="text-lg mb-8 text-amber-100">
-              We're always looking for talented individuals who share our values and passion for excellence.
-            </p>
-            <a 
-              href="/careers" 
-              className="bg-white text-amber-600 font-medium py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-300"
-            >
-              View Open Positions
-            </a>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };
 
-export default Team;
+const ValueCard = ({ value, index }: { value: typeof values[0]; index: number }) => {
+  const IconComponent = value.icon;
+  
+  return (
+    <div
+      className="group relative"
+      style={{
+        animationDelay: `${index * 100}ms`,
+        animation: 'fadeInUp 0.6s ease-out forwards'
+      }}
+    >
+      <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/20 h-full">
+        <div className={`inline-flex p-3 rounded-2xl bg-gradient-to-r ${value.gradient} mb-4`}>
+          <IconComponent className="w-6 h-6 text-white" />
+        </div>
+        <h4 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors duration-300">
+          {value.title}
+        </h4>
+        <p className="text-gray-600 leading-relaxed">
+          {value.description}
+        </p>
+      </div>
+    </div>
+  );
+};
+
+const FancyTeamPage = () => {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-600/5 via-purple-600/5 to-blue-600/5"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-orange-300/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl"></div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <Users className="w-4 h-4" />
+              Meet Our Team
+            </div>
+            <h1 className="text-5xl md:text-7xl font-black bg-gradient-to-r from-gray-900 via-purple-900 to-orange-900 bg-clip-text text-transparent mb-6">
+              The Minds Behind
+              <br />
+              <span className="text-5xl md:text-7xl">Innovation</span>
+            </h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Meet the talented individuals who drive our success and bring innovative solutions to life every day
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Team Members Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {teamMembers.map((member, index) => (
+              <TeamMember key={member.id} member={member} index={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-20 bg-gradient-to-r from-orange-600 via-pink-600 to-purple-600 relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/10"></div>
+        <div className="absolute top-0 left-0 w-full h-full">
+          <div className="absolute top-20 left-20 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-20 right-20 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { number: '50+', label: 'Projects Completed', icon: Globe },
+              { number: '25+', label: 'Happy Clients', icon: Heart },
+              { number: '3+', label: 'Years Experience', icon: Award },
+              { number: '100%', label: 'Success Rate', icon: Zap }
+            ].map((stat, index) => {
+              const IconComponent = stat.icon;
+              return (
+                <div key={index} className="text-center text-white">
+                  <div className="inline-flex p-3 rounded-2xl bg-white/20 backdrop-blur-sm mb-4">
+                    <IconComponent className="w-8 h-8" />
+                  </div>
+                  <div className="text-3xl md:text-4xl font-bold mb-2">{stat.number}</div>
+                  <div className="text-white/90 font-medium">{stat.label}</div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <Star className="w-4 h-4" />
+              Our Values
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              What Drives Us Forward
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              The core principles that guide our work, shape our culture, and define who we are as a team
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {values.map((value, index) => (
+              <ValueCard key={value.title} value={value} index={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Join Us Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-20 w-64 h-64 bg-orange-500/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-20 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-medium mb-8">
+            <Sparkles className="w-4 h-4" />
+            Join Our Team
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Ready to Shape the Future?
+          </h2>
+          <p className="text-xl text-gray-300 mb-10 leading-relaxed">
+            We're always looking for talented individuals who share our passion for innovation and excellence. Join us in building tomorrow's digital solutions.
+          </p>
+          <Link to="/careers">
+          <button className="group bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-bold px-8 py-4 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/30 flex items-center gap-2 mx-auto">
+            View Open Positions
+            <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+          </button>
+          </Link>
+        </div>
+      </section>
+
+      <style>
+        {`
+          @keyframes fadeInUp {
+            from {
+              opacity: 0;
+              transform: translateY(30px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+        `}
+      </style>
+    </div>
+  );
+};
+
+export default FancyTeamPage;

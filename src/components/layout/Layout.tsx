@@ -28,7 +28,7 @@ const Layout = () => {
         scrolled={scrolled} 
         openServicesModal={() => setShowModal(true)} 
       />
-      <main className="flex-grow">
+      <main className="flex-grow overflow-x-hidden">
         <Outlet />
       </main>
       <Footer />
