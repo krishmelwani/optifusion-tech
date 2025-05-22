@@ -9,7 +9,7 @@ const testimonials = [
     company: 'Healthfab',
     avatar: 'https://randomuser.me/api/portraits/men/41.jpg',
     rating: 5,
-    text: 'Optifusion`s graphic design team impressed us from day one. Whether it was social media creatives, marketing collateral, or website visuals, their designs were fresh, modern, and perfectly aligned with our brand. They paid attention to even the smallest details, ensuring every piece of content reflected our message and tone. The designers were easy to work with, open to feedback, and always delivered on time. Our visual branding has improved tremendously thanks to their work.'
+    text: 'Optifusion\'s graphic design team impressed us from day one. Whether it was social media creatives, marketing collateral, or website visuals, their designs were fresh, modern, and perfectly aligned with our brand. They paid attention to even the smallest details, ensuring every piece of content reflected our message and tone. The designers were easy to work with, open to feedback, and always delivered on time. Our visual branding has improved tremendously thanks to their work.'
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const testimonials = [
     company: 'Pickrr',
     avatar: 'https://randomuser.me/api/portraits/women/52.jpg',
     rating: 5,
-    text: 'Our experience with Optifusion’s web development team has been nothing short of exceptional. From the initial consultation to the final launch, every phase was handled with professionalism, clear communication, and technical expertise. The website they built for us is not only visually stunning but also incredibly fast, mobile-responsive, and SEO-friendly.'
+    text: 'Our experience with Optifusion\'s web development team has been nothing short of exceptional. From the initial consultation to the final launch, every phase was handled with professionalism, clear communication, and technical expertise. The website they built for us is not only visually stunning but also incredibly fast, mobile-responsive, and SEO-friendly.'
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const testimonials = [
     company: 'Expertronsa',
     avatar: 'https://randomuser.me/api/portraits/men/29.jpg',
     rating: 4,
-    text: 'Optifusion`s content writing services helped us redefine how we communicate with our audience. Their team delivered well-researched, original, and engaging content that resonated perfectly with our brand voice. From blogs and product descriptions to email campaigns and web content, everything was thoughtfully written with clear attention to detail. We also appreciated their ability to write SEO-optimized content that helped improve our visibility in search engines. '
+    text: 'Optifusion\'s content writing services helped us redefine how we communicate with our audience. Their team delivered well-researched, original, and engaging content that resonated perfectly with our brand voice. From blogs and product descriptions to email campaigns and web content, everything was thoughtfully written with clear attention to detail. We also appreciated their ability to write SEO-optimized content that helped improve our visibility in search engines.'
   },
   {
     id: 4,
@@ -36,7 +36,7 @@ const testimonials = [
     company: 'University',
     avatar: 'https://randomuser.me/api/portraits/women/26.jpg',
     rating: 5,
-    text: 'Developing a mobile app can be a complex process, but Optifusion made it smooth and hassle-free. Their app development team was technically sound, communicative, and fully invested in our project from start to finish. They helped us design a user-friendly interface, integrate powerful features, and ensure cross-platform performance. The final product was sleek, functional, and launched without a hitch. We’re grateful to have found such a reliable partner.'
+    text: 'Developing a mobile app can be a complex process, but Optifusion made it smooth and hassle-free. Their app development team was technically sound, communicative, and fully invested in our project from start to finish. They helped us design a user-friendly interface, integrate powerful features, and ensure cross-platform performance. The final product was sleek, functional, and launched without a hitch. We\'re grateful to have found such a reliable partner.'
   },
   {
     id: 5,
@@ -45,7 +45,7 @@ const testimonials = [
     company: 'University',
     avatar: 'https://randomuser.me/api/portraits/men/22.jpg',
     rating: 4,
-    text: 'One of the most impressive things about working with Optifusion is their commitment to deadlines and quality. Every project we’ve handed over – big or small – has been delivered on time without compromising on results. They manage their work professionally, provide clear timelines, and always keep us updated. It’s rare to find such consistency and reliability in a service provider.'
+    text: 'One of the most impressive things about working with Optifusion is their commitment to deadlines and quality. Every project we\'ve handed over – big or small – has been delivered on time without compromising on results. They manage their work professionally, provide clear timelines, and always keep us updated. It\'s rare to find such consistency and reliability in a service provider.'
   }
 ];
 

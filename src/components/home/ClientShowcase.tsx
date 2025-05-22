@@ -82,8 +82,14 @@ const OurClients: React.FC = () => {
   };
 
   return (
-    <section id="our-clients" className="py-20 bg-[#FFF5EF]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50">
+      {/* Background Elements - Matching ServicesList */}
+      <div className="absolute inset-0 opacity-50">
+        <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-orange-400/10 to-pink-400/10 rounded-full blur-2xl"></div>
+        <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-2xl"></div>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -91,12 +97,20 @@ const OurClients: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-[#704F55] mb-6">
-            Our Clients
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+            Our Partners
+          </div>
+          <h2 className="text-4xl md:text-6xl font-black mb-6">
+            <span className="bg-gradient-to-r from-gray-900 via-purple-900 to-orange-900 bg-clip-text text-transparent">
+              Trusted By
+            </span>
+            <br />
+            <span className="bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">
+              Industry Leaders
+            </span>
           </h2>
-          <p className="text-lg text-[#A56F76] max-w-2xl mx-auto">
-            Trusted by leading companies worldwide. We're proud to partner with innovative 
-            businesses across various industries to deliver exceptional digital solutions.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            We're proud to partner with innovative businesses across various industries to deliver exceptional digital solutions.
           </p>
         </motion.div>
       </div>
@@ -120,7 +134,7 @@ const OurClients: React.FC = () => {
                 <img
                   src={client.logo}
                   alt={client.name}
-                  className="h-16 w-auto max-w-32 object-contain"
+                  className="h-16 w-auto max-w-32 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                 />
               </div>
             ))}
@@ -136,7 +150,7 @@ const OurClients: React.FC = () => {
                 <img
                   src={client.logo}
                   alt={client.name}
-                  className="h-16 w-auto max-w-32 object-contain"
+                  className="h-16 w-auto max-w-32 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                 />
               </div>
             ))}
