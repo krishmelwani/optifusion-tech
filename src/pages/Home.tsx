@@ -6,6 +6,7 @@ import ServicesList from '../components/services/ServicesList';
 import { ChevronRight, MessageSquare } from 'lucide-react';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { LayoutContext } from '../contexts/LayoutContext';
+import ClientTestimonial from '../components/home/ClientTestimonial';
 
 const Counter = ({ target }: { target: number }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -131,6 +132,7 @@ const Home = () => {
       </section>
 
       <ClientShowcase />
+      <ClientTestimonial/>
 
       {/* CTA Section */}
       <section className="section bg-orange-50">
