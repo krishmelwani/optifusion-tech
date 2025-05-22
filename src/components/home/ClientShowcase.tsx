@@ -1,53 +1,72 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 
-// Example project data
-const projects = [
+// Client logos data type
+interface Client {
+  id: number;
+  name: string;
+  logo: string;
+}
+
+const clients: Client[] = [
   {
     id: 1,
-    title: 'E-Commerce Platform',
-    client: 'One Mile',
-    image: 'https://ik.imagekit.io/6ilngyaqa/1747551602362-Screenshot_2025-05-17_213205_tFBFxeHuug.png',
-    country: 'India'
+    name: 'Healthfab',
+    logo: 'https://ik.imagekit.io/6ilngyaqa/1747742807531-Screenshot_2025-05-20_at_5.02.07_PM-removebg-preview_9wGMXFTji.png',
   },
   {
     id: 2,
-    title: 'Healthcare',
-    client: 'Primary Health',
-    image: 'https://ik.imagekit.io/6ilngyaqa/1747551699525-Screenshot_2025-05-18_123124_3OWz2yMqM.png',
-    country: 'India'
+    name: 'FITTR',
+    logo: 'https://ik.imagekit.io/6ilngyaqa/1747742848747-Screenshot_2025-05-20_at_5.22.00_PM-removebg-preview_ABnfX63Xk.png',
   },
   {
     id: 3,
-    title: 'Finance Dashboard',
-    client: 'Vena Solution',
-    image: 'https://ik.imagekit.io/6ilngyaqa/1747551792334-Screenshot_2025-05-18_123247_-SitmZffsW.png',
-    country: 'USA'
+    name: 'Veey Much Indian',
+    logo: 'https://ik.imagekit.io/6ilngyaqa/1747743962249-Screenshot_2025-05-20_at_5.40.25_PM-removebg-preview_zwwRQPbCu.png',
   },
   {
     id: 4,
-    title: 'Educational App',
-    client: 'Educate',
-    image: 'https://ik.imagekit.io/6ilngyaqa/1747552839811-WhatsApp_Image_2025-05-18_at_12.50.16_960a3823_d8it35n8g.jpg',
-    country: 'India'
+    name: 'Expertons',
+    logo: 'https://ik.imagekit.io/6ilngyaqa/1747744004285-Screenshot_2025-05-20_at_5.44.45_PM-removebg-preview_urTwBlq1O.png',
   },
   {
     id: 5,
-    title: 'Restaurant Booking',
-    client: 'Eazy Dinner',
-    image: 'https://ik.imagekit.io/6ilngyaqa/1747553195195-WhatsApp_Image_2025-05-18_at_12.56.10_32d9099e_M_kZTEnAw.jpg',
-    country: 'India'
+    name: 'TailBlaze',
+    logo: 'https://ik.imagekit.io/6ilngyaqa/1747744028462-Screenshot_2025-05-20_at_5.49.09_PM-removebg-preview_jR1wiYK-Qf.png',
   },
   {
     id: 6,
-    title: 'Real Estate Platform',
-    client: 'On the Market',
-    image: 'https://ik.imagekit.io/6ilngyaqa/1747553581897-WhatsApp_Image_2025-05-18_at_13.02.48_c181e3da_IrjKhG3GV.jpg',
-    country: 'UK'
+    name: 'Pickrr',
+    logo: 'https://ik.imagekit.io/6ilngyaqa/1747744078340-Screenshot_2025-05-20_at_5.54.56_PM-removebg-preview_WIp00NnaO.png',
+  },
+  {
+    id: 7,
+    name: 'Auli',
+    logo: 'https://ik.imagekit.io/6ilngyaqa/1747744403833-Screenshot_2025-05-20_at_6.01.01_PM-removebg-preview_7qtQl2w4B.png',
+  },
+  {
+    id: 8,
+    name: 'Galgotias University',
+    logo: 'https://ik.imagekit.io/6ilngyaqa/1747744624039-Galgotias-University-Logo-removebg-preview__1__2E81EfHCMV.png',
+  },
+  {
+    id: 9,
+    name: 'VGU Jaipur',
+    logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJPHkXG-J_GMu8RuSJJ71w55Jrk9loRN6INg&s',
+  },
+  {
+    id: 10,
+    name: 'ITS',
+    logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUbZ8p6eb0HpRAJOOnsfAheWCKlo2kfi18Tg&s',
+  },
+  {
+    id: 11,
+    name: 'Poornima University',
+    logo: 'https://ik.imagekit.io/6ilngyaqa/1747745590878-PULogo-removebg-preview_92ieP_K70.png',
   }
 ];
 
-const ClientShowcase = () => {
+const OurClients: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleMouseEnter = () => {
@@ -63,62 +82,85 @@ const ClientShowcase = () => {
   };
 
   return (
-    <section id="client-showcase" className="section bg-[#FFF5EF]">
-      <div className="container-custom">
+    <section id="our-clients" className="py-20 bg-[#FFF5EF]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
+          className="text-center mb-16"
         >
-          <h2 className="section-title text-[#704F55]">Our Latest Work</h2>
-          <p className="section-subtitle text-[#A56F76]">
-            Explore our recent projects delivering innovative solutions for clients across industries
+          <h2 className="text-4xl md:text-5xl font-bold text-[#704F55] mb-6">
+            Our Clients
+          </h2>
+          <p className="text-lg text-[#A56F76] max-w-2xl mx-auto">
+            Trusted by leading companies worldwide. We're proud to partner with innovative 
+            businesses across various industries to deliver exceptional digital solutions.
           </p>
         </motion.div>
       </div>
 
-      <div className="overflow-hidden mt-12">
+      {/* Infinite scrolling logos */}
+      <div className="overflow-hidden">
         <div 
-          ref={containerRef} 
-          className="flex animate-slide-left"
+          ref={containerRef}
+          className="flex animate-slide-infinite"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           style={{ width: 'fit-content' }}
         >
+          {/* First set of logos */}
           <div className="flex">
-            {[...projects, ...projects].map((project, index) => (
+            {clients.map((client) => (
               <div
-                key={index}
-                className="flex-shrink-0 w-80 h-96 mx-4 rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-[1.03] duration-300 bg-white"
+                key={client.id}
+                className="flex-shrink-0 mx-8 flex items-center justify-center"
               >
-                <div className="relative h-full group">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#704F55]/80 via-[#A56F76]/40 to-transparent group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <div className="mb-1 text-sm text-[#F4DDC9] font-medium">
-                        {project.client} • {project.country}
-                      </div>
-                      <h3 className="text-xl text-white font-bold mb-2">
-                        {project.title}
-                      </h3>
-                      <button className="text-sm font-medium text-[#F4DDC9] border-b border-[#F4DDC9]/50 hover:border-[#F4DDC9] transition-all pb-0.5">
-                        View Project
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                <img
+                  src={client.logo}
+                  alt={client.name}
+                  className="h-16 w-auto max-w-32 object-contain"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Duplicate set for seamless loop */}
+          <div className="flex">
+            {clients.map((client) => (
+              <div
+                key={`duplicate-${client.id}`}
+                className="flex-shrink-0 mx-8 flex items-center justify-center"
+              >
+                <img
+                  src={client.logo}
+                  alt={client.name}
+                  className="h-16 w-auto max-w-32 object-contain"
+                />
               </div>
             ))}
           </div>
         </div>
       </div>
+
+      {/* CSS for infinite scroll animation */}
+      <style>{`
+        @keyframes slide-infinite {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        .animate-slide-infinite {
+          animation: slide-infinite 30s linear infinite;
+        }
+      `}</style>
     </section>
   );
 };
 
-export default ClientShowcase;
+export default OurClients;
