@@ -154,7 +154,7 @@ const marketingPlans = [
 const contentWritingPlans = [
   {
     name: 'Basic',
-    price: '₹5,299',
+    price: '₹2,499',
     description: 'Powerful, SEO-driven content that grabs attention and fuels growth.',
     features: [
       'Up to 1000 words ',
@@ -165,12 +165,41 @@ const contentWritingPlans = [
     isPopular: false,
     gradient: 'from-orange-500 to-pink-500',
     topup: 'Ideal for website pages, blogs, product descriptions.'
+  },
+  {
+    name: 'Standard',
+    price: '₹5,299',
+    description: 'Ideal for growing businesses that need impactful blog posts, website content, or product pages.',
+    features: [
+      'Up to 1200 words',
+      'Advanced SEO integration',
+      'Brand tone and style adaptation',
+      '3 revisions included'
+    ],
+    isPopular: true,
+    gradient: 'from-orange-500 to-pink-500',
+    topup: 'Ideal for website pages, blogs, product descriptions.'
+  },
+  {
+    name: 'Custom Strategy',
+    price: 'Custom',
+    description: 'Perfect for businesses seeking a long-term content partner and a distinct market voice.',
+    features: [
+      'Any format: whitepapers, email campaigns, ad copies, etc.',
+      'Deep keyword & competitor research',
+      'Brand guideline implementation',
+      'Unlimited revisions'
+    ],
+    isPopular: false,
+    gradient: 'from-orange-500 to-pink-500',
+    topup: 'New clients enjoy tailored strategy + 15% launch discount!'
   }
+
 ];
 
 const graphicDesignPlans = [{
   name: 'Basic',
-  price: '₹4,999',
+  price: '₹1,999',
   description: "Eye-catching designs for both digital & print that elevate your brand's presence.",
   features: [
     '3 social media posts ',
@@ -181,6 +210,36 @@ const graphicDesignPlans = [{
   isPopular: false,
   gradient: 'from-orange-500 to-pink-500',
   topup: ' Logo design available at discounted bundle rates.'
+},
+{
+  name: 'Standard',
+  price: '₹4,999',
+  description: 'Great for startups and brands seeking consistency across platforms.',
+  features: [
+    ' 5 social media creatives',
+    '2 flyers/posters/banners',
+    'Brand-consistent design elements',
+    '3 free revisions',
+    'Logo design included in bundle'
+  ],
+  isPopular: true,
+  gradient: 'from-orange-500 to-pink-500',
+  topup: ' Logo design available at discounted bundle rates.'
+},
+{
+  name: 'Custom Strategy',
+  price: 'Custom',
+  description: 'Designed for brands with complex, evolving visual needs.',
+  features: [
+    'Unlimited design types: UI, packaging, brochures, pitch decks, etc.',
+    'Dedicated designer collaboration',
+    'Brand kit & guidelines creation',
+    'Unlimited revisions',
+    'Priority delivery available'
+  ],
+  isPopular: false,
+  gradient: 'from-orange-500 to-pink-500',
+  topup: 'New clients enjoy tailored strategy + 15% launch discount!'
 }];
 
 const PricingPlan = ({ plan, index }: { plan: typeof websitePlans[0]; index: number }) => {
@@ -281,11 +340,10 @@ const Pricing = () => {
               {['websites', 'apps', 'marketing', 'content writing', 'graphic design'].map((category) => (
                 <button
                   key={category}
-                  className={`flex-1 py-2 sm:py-3 px-2 sm:px-4 rounded-lg font-medium transition-all duration-300 text-sm sm:text-base ${
-                    selectedCategory === category
-                      ? 'bg-gradient-to-r from-orange-500 to-pink-500 text-white shadow-lg'
-                      : 'text-gray-700 hover:bg-gray-100'
-                  }`}
+                  className={`flex-1 py-2 sm:py-3 px-2 sm:px-4 rounded-lg font-medium transition-all duration-300 text-sm sm:text-base ${selectedCategory === category
+                    ? 'bg-gradient-to-r from-orange-500 to-pink-500 text-white shadow-lg'
+                    : 'text-gray-700 hover:bg-gray-100'
+                    }`}
                   onClick={() => setSelectedCategory(category)}
                 >
                   {category === 'websites' && 'Web Development'}
