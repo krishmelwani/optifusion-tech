@@ -1,44 +1,74 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Optifusion Technologies | Innovative Digital Solutions</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Primary Meta Tags -->
+    <meta
+      name="title"
+      content="Optifusion Technologies | Innovative Digital Solutions" />
+    <meta
+      name="description"
+      content="From web development to professional content writing and flyer/poster design and search engine marketing, we deliver solutions that are as scalable as your ambition." />
+    <meta
+      name="keywords"
+      content="content writing services,graphic design services,ecommerce website ,custom web application development,portfolio website development,startup website design services,website redesign services,website development company,digital marketing agency,SEO content writing,custom website development,social media graphic design,affordable content writing packages,professional graphic design,full stack web development services,search engine optimization services,digital marketing for small business,content writing services,graphic design services,professional content writers,freelance graphic designer India,custom content writing plan,standard graphic design package,SEO content writing services,affordable graphic design solutions,custom branding and design,hire content writer for website" />
+
+    <meta name="author" content="Optifusion Technologies" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://optifusion.tech/" />
+    <meta
+      property="og:title"
+      content="Optifusion Technologies | Innovative Digital Solutions" />
+    <meta
+      property="og:description"
+      content=" Web Development Services, Graphic Design & Content Writing | Boost Your Brand Online" />
+    <meta property="og:image" content="https://optifusion.tech/og-image.jpg" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://optifusion.tech/" />
+
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet" />
   </head>
   <body>
-    
     <div id="root"></div>
     <script type="module" src="/src/main.tsx">
-      
-  document.addEventListener("DOMContentLoaded", () => {
-    const counters = document.querySelectorAll('.counter');
-    const duration = 5000; // total duration in milliseconds
 
-    counters.forEach(counter => {
-      const target = +counter.getAttribute('data-target');
-      const startTime = performance.now();
+      document.addEventListener("DOMContentLoaded", () => {
+        const counters = document.querySelectorAll('.counter');
+        const duration = 5000; // total duration in milliseconds
 
-      function updateCounter(currentTime) {
-        const elapsedTime = currentTime - startTime;
-        const progress = Math.min(elapsedTime / duration, 1);
-        const value = Math.floor(progress * target);
-        counter.innerText = value;
+        counters.forEach(counter => {
+          const target = +counter.getAttribute('data-target');
+          const startTime = performance.now();
 
-        if (progress < 1) {
+          function updateCounter(currentTime) {
+            const elapsedTime = currentTime - startTime;
+            const progress = Math.min(elapsedTime / duration, 1);
+            const value = Math.floor(progress * target);
+            counter.innerText = value;
+
+            if (progress < 1) {
+              requestAnimationFrame(updateCounter);
+            } else {
+              counter.innerText = target + "+";
+            }
+          }
+
           requestAnimationFrame(updateCounter);
-        } else {
-          counter.innerText = target + "+";
-        }
-      }
-
-      requestAnimationFrame(updateCounter);
-    });
-  });
-
+        });
+      });
     </script>
   </body>
 </html>
