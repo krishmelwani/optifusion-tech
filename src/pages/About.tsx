@@ -39,7 +39,7 @@ const About = () => {
                 Founded in 2022, Optifusion Technologies has grown from a small startup to a leading digital agency serving clients across India and internationally. Our mission is to help businesses thrive in the digital landscape by providing cutting-edge solutions tailored to their unique needs.
               </p>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -47,23 +47,23 @@ const About = () => {
               className="relative"
             >
               <div className="aspect-video rounded-xl overflow-hidden shadow-xl">
-                <img 
-                  src="https://ik.imagekit.io/6ilngyaqa/1747551501075-WhatsApp_Image_2025-05-18_at_11.08.13_727eb5d9_04_pJlpgI.jpg" 
-                  alt="Optifusion Team" 
+                <img
+                  src="/assets/careers-page-pic.jpeg"
+                  alt="Optifusion Team"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-white/80 backdrop-blur-sm p-4 rounded-lg shadow-lg border border-gray-100">
                 <div className="flex items-center gap-3">
                   <div className="text-4xl font-bold bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">3+</div>
-                  <div className="text-gray-600">Years of<br/>Experience</div>
+                  <div className="text-gray-600">Years of<br />Experience</div>
                 </div>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
-      
+
       {/* Our Story Section */}
       <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
         <div className="absolute inset-0 opacity-50">
@@ -71,11 +71,11 @@ const About = () => {
           <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-2xl"></div>
         </div>
         <div className="container-custom relative">
-          <SectionHeading 
+          <SectionHeading
             title="Our Story"
             subtitle="The journey that made us who we are today"
           />
-          
+
           <div className="max-w-4xl mx-auto">
             <div className="relative border-l-4 border-orange-200 pl-8 py-6">
               {[
@@ -121,7 +121,7 @@ const About = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Vision & Mission Section */}
       <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
         <div className="absolute inset-0 opacity-50">
@@ -145,7 +145,7 @@ const About = () => {
                 To be the catalyst for digital transformation, empowering businesses to thrive in an ever-evolving digital landscape through innovative solutions and exceptional service.
               </p>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -164,7 +164,7 @@ const About = () => {
           </div>
         </div>
       </section>
-      
+
       {/* What Makes Us Different Section */}
       <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
         <div className="absolute inset-0 opacity-50">
@@ -172,11 +172,11 @@ const About = () => {
           <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-2xl"></div>
         </div>
         <div className="container-custom relative">
-          <SectionHeading 
+          <SectionHeading
             title="What Makes Us Different"
             subtitle="The values and approach that set us apart"
           />
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
             {[
               {
@@ -218,17 +218,17 @@ const About = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Stats Section */}
-      <StatsSection/>
-      
+      <StatsSection />
+
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-20 left-20 w-64 h-64 bg-orange-500/20 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-20 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl"></div>
         </div>
-        
+
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-medium mb-8">
             <Sparkles className="w-4 h-4" />
@@ -241,7 +241,7 @@ const About = () => {
             Let's discuss how our team can help bring your vision to life with our expertise and innovative solutions.
           </p>
           <div className="flex justify-center">
-            <a 
+            <a
               href="mailto:info@optifusiontechnologies.in"
               className="group bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-bold px-6 py-3 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/30 flex items-center gap-2"
             >

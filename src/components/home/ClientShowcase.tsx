@@ -12,42 +12,42 @@ const clients: Client[] = [
   {
     id: 1,
     name: 'Healthfab',
-    logo: 'https://ik.imagekit.io/6ilngyaqa/1747742807531-Screenshot_2025-05-20_at_5.02.07_PM-removebg-preview_9wGMXFTji.png',
+    logo: 'https://www.healthfab.in/cdn/shop/files/LogoTransparent.png?v=1699085488&width=180',
   },
   {
     id: 2,
     name: 'FITTR',
-    logo: 'https://ik.imagekit.io/6ilngyaqa/1747742848747-Screenshot_2025-05-20_at_5.22.00_PM-removebg-preview_ABnfX63Xk.png',
+    logo: 'https://www.fittr.com/static-content/header_logo_58dcc03f6e.svg',
   },
   {
     id: 3,
     name: 'Veey Much Indian',
-    logo: 'https://ik.imagekit.io/6ilngyaqa/1747743962249-Screenshot_2025-05-20_at_5.40.25_PM-removebg-preview_zwwRQPbCu.png',
+    logo: 'https://www.verymuchindian.com/cdn/shop/files/VMI-Logo_200x.png?v=1639207659',
   },
   {
     id: 4,
     name: 'Expertons',
-    logo: 'https://ik.imagekit.io/6ilngyaqa/1747744004285-Screenshot_2025-05-20_at_5.44.45_PM-removebg-preview_urTwBlq1O.png',
+    logo: 'https://www.expertrons.com/wp-content/uploads/2023/04/logo.svg',
   },
   {
     id: 5,
     name: 'TailBlaze',
-    logo: 'https://ik.imagekit.io/6ilngyaqa/1747744028462-Screenshot_2025-05-20_at_5.49.09_PM-removebg-preview_jR1wiYK-Qf.png',
+    logo: 'https://tailblaze.in/cdn/shop/files/Group_4.svg?height=140&v=1740107006',
   },
   {
     id: 6,
     name: 'Pickrr',
-    logo: 'https://ik.imagekit.io/6ilngyaqa/1747744078340-Screenshot_2025-05-20_at_5.54.56_PM-removebg-preview_WIp00NnaO.png',
+    logo: 'https://d10srchmli830n.cloudfront.net/1645333441395_New-logo_c.svg',
   },
   {
     id: 7,
     name: 'Auli',
-    logo: 'https://ik.imagekit.io/6ilngyaqa/1747744403833-Screenshot_2025-05-20_at_6.01.01_PM-removebg-preview_7qtQl2w4B.png',
+    logo: 'https://aulilifestyle.com/cdn/shop/files/Auli_Logo_Black_1_a1840822-d7dc-4dc0-a43b-a0bfde754c91.png?height=70&v=1746806300',
   },
   {
     id: 8,
     name: 'Galgotias University',
-    logo: 'https://ik.imagekit.io/6ilngyaqa/1747744624039-Galgotias-University-Logo-removebg-preview__1__2E81EfHCMV.png',
+    logo: 'https://cdn.dribbble.com/userupload/24344349/file/original-d651422d1b78f09ea8358349368687a4.png',
   },
   {
     id: 9,
@@ -62,7 +62,7 @@ const clients: Client[] = [
   {
     id: 11,
     name: 'Poornima University',
-    logo: 'https://ik.imagekit.io/6ilngyaqa/1747745590878-PULogo-removebg-preview_92ieP_K70.png',
+    logo: 'https://poornima.edu.in/assets/images/PULogo.png',
   }
 ];
 
@@ -117,7 +117,7 @@ const OurClients: React.FC = () => {
 
       {/* Infinite scrolling logos */}
       <div className="overflow-hidden">
-        <div 
+        <div
           ref={containerRef}
           className="flex animate-slide-infinite"
           onMouseEnter={handleMouseEnter}

@@ -22,7 +22,7 @@ const projectsData: Project[] = [
     title: 'E-Commerce Platform',
     client: 'One Mile',
     description: 'A full-featured e-commerce platform with inventory management, payment processing, and customer analytics.',
-    image: 'https://ik.imagekit.io/6ilngyaqa/1747551602362-Screenshot_2025-05-17_213205_tFBFxeHuug.png',
+    image: 'https://cmsmart.net/images/community/8382/banner.jpg',
     country: 'India',
     category: 'web',
     technologies: ['React', 'Node.js', 'MongoDB'],
@@ -169,7 +169,7 @@ const FancyProjects = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-purple-600/10 to-blue-600/10"></div>
         <div className="absolute top-20 left-10 w-72 h-72 bg-orange-300/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl"></div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
@@ -195,11 +195,10 @@ const FancyProjects = () => {
               return (
                 <button
                   key={category.id}
-                  className={`group relative px-6 py-3 rounded-2xl font-medium transition-all duration-300 ${
-                    filter === category.id
-                      ? 'bg-gradient-to-r from-orange-500 to-pink-500 text-white shadow-lg shadow-orange-500/30 scale-105'
-                      : 'bg-white/80 backdrop-blur-sm text-gray-700 hover:bg-white hover:shadow-lg hover:shadow-gray-200/50 border border-gray-200/50'
-                  }`}
+                  className={`group relative px-6 py-3 rounded-2xl font-medium transition-all duration-300 ${filter === category.id
+                    ? 'bg-gradient-to-r from-orange-500 to-pink-500 text-white shadow-lg shadow-orange-500/30 scale-105'
+                    : 'bg-white/80 backdrop-blur-sm text-gray-700 hover:bg-white hover:shadow-lg hover:shadow-gray-200/50 border border-gray-200/50'
+                    }`}
                   onClick={() => setFilter(category.id)}
                 >
                   <div className="flex items-center gap-2">
@@ -229,13 +228,13 @@ const FancyProjects = () => {
               >
                 {/* Image Section */}
                 <div className="relative h-64 overflow-hidden">
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
+                  <img
+                    src={project.image}
+                    alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  
+
                   {/* Category Badge */}
                   <div className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold text-white bg-gradient-to-r ${categoryColors[project.category as keyof typeof categoryColors]}`}>
                     {project.category.toUpperCase()}
@@ -296,8 +295,8 @@ const FancyProjects = () => {
                   {/* Technologies */}
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
-                      <span 
-                        key={tech} 
+                      <span
+                        key={tech}
                         className="bg-gradient-to-r from-gray-100 to-gray-50 text-gray-700 px-3 py-1 rounded-full text-xs font-medium border border-gray-200/50 hover:shadow-sm transition-shadow duration-200"
                       >
                         {tech}
@@ -307,9 +306,8 @@ const FancyProjects = () => {
                 </div>
 
                 {/* Animated Border */}
-                <div className={`absolute inset-0 rounded-3xl transition-opacity duration-300 ${
-                  hoveredProject === project.id ? 'opacity-100' : 'opacity-0'
-                }`}>
+                <div className={`absolute inset-0 rounded-3xl transition-opacity duration-300 ${hoveredProject === project.id ? 'opacity-100' : 'opacity-0'
+                  }`}>
                   <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-orange-500/20 via-pink-500/20 to-blue-500/20 blur-sm"></div>
                 </div>
               </div>
@@ -325,22 +323,22 @@ const FancyProjects = () => {
           <div className="absolute top-20 left-20 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
           <div className="absolute bottom-20 right-20 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
         </div>
-        
+
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-8">
             <Star className="w-4 h-4" />
             Client Success Stories
           </div>
-          
+
           <blockquote className="text-center">
             <p className="text-2xl md:text-3xl font-light text-white/95 mb-8 leading-relaxed italic">
               "Working with Optifusion Technologies was a game-changer for our business. Their team delivered an exceptional e-commerce platform that exceeded our expectations."
             </p>
             <div className="flex flex-col items-center">
               <div className="w-20 h-20 rounded-full overflow-hidden mb-4 ring-4 ring-white/30">
-                <img 
-                  src="https://ik.imagekit.io/6ilngyaqa/1747555001297-WhatsApp_Image_2025-05-18_at_13.26.06_a5f524e5_CNZtXcUCK.jpg" 
-                  alt="Pravin Agarwal" 
+                <img
+                  src="https://media.licdn.com/dms/image/v2/C4E03AQFd9ZZ1XtnWcA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1611818242443?e=2147483647&v=beta&t=NdC7LjKqbFWPB1JjMVoi403DjeW8R8gg-ulsRHmPPVQ"
+                  alt="Pravin Agarwal"
                   className="w-full h-full object-cover"
                 />
               </div>
