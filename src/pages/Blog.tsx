@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Search, ArrowRight, Sparkles, MessageSquare } from 'lucide-react';
+import { Search, ArrowRight, Sparkles, MessageSquare, User2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 // Blog post data
@@ -58,7 +58,7 @@ const blogPosts = [
   {
     id: 6,
     title: 'E-commerce Trends That Will Dominate in 2025',
-    excerpt: 'Stay ahead of the competition by implementing these emerging e-commerce trends in your online store.',
+    excerpt: 'Stay ahead of the competition by implementing these emerging and trending e-commerce trends in your online store.',
     image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     author: 'Pooja Verma',
     date: 'March 8, 2025',
@@ -182,14 +182,11 @@ const Blog = () => {
                   </h3>
                   <p className="text-gray-600 mb-4">{post.excerpt}</p>
                   <div className="mt-auto flex items-center justify-between">
-                    <div className="flex items-center">
-                      <div className="w-8 h-8 rounded-full overflow-hidden mr-2 ring-2 ring-orange-500/20">
-                        <img
-                          src={`https://i.pravatar.cc/150?u=${post.id}`}
-                          alt={post.author}
-                          className="w-full h-full object-cover"
-                        />
+                    <div className="flex items-center gap-2">
+                      <div>
+                        <User2 size={19} />
                       </div>
+
                       <span className="text-sm font-medium">{post.author}</span>
                     </div>
                     <button
