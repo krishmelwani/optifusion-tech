@@ -35,7 +35,7 @@ const teamMembers: TeamMember[] = [
     id: 2,
     name: 'Harshita Mishra',
     role: 'HR Manager',
-    image: 'https://ik.imagekit.io/6ilngyaqa/1747549466955-WhatsApp_Image_2025-05-18_at_11.54.14_5341521a_RwysGYi_Zv.jpg',
+    image: '/assets/harshita-optifusion.jpeg',
     bio: 'Harshita Mishra is the HR Manager at Optifusion Technologies, responsible for overseeing all human resource functions. She manages recruitment, employee relations, and ensures a positive work environment to support the company\'s growth and success.'
   },
   {
