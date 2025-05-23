@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import SectionHeading from '../components/common/SectionHeading';
 import { Award, Users, Target, Zap, Sparkles, MessageSquare } from 'lucide-react';
+import StatsSection from '../components/home/StatsSection';
 
 const About = () => {
   return (
@@ -219,53 +220,7 @@ const About = () => {
       </section>
       
       {/* Stats Section */}
-      <section className="py-20 bg-gradient-to-r from-orange-600 via-pink-600 to-purple-600 relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/10"></div>
-        <div className="absolute top-0 left-0 w-full h-full">
-          <div className="absolute top-20 left-20 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
-          <div className="absolute bottom-20 right-20 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
-        </div>
-        <div className="container-custom relative">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <div className="text-4xl md:text-5xl font-bold mb-2 text-white">500+</div>
-              <div className="text-white/90">Happy Clients</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className="text-4xl md:text-5xl font-bold mb-2 text-white">750+</div>
-              <div className="text-white/90">Projects Completed</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <div className="text-4xl md:text-5xl font-bold mb-2 text-white">4+</div>
-              <div className="text-white/90">Years</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <div className="text-4xl md:text-5xl font-bold mb-2 text-white">15+</div>
-              <div className="text-white/90">Expert Team Members</div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      <StatsSection/>
       
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
