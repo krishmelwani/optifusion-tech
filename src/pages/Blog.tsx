@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Search, ArrowRight, Sparkles, MessageSquare } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 // Blog post data
 const blogPosts = [
@@ -70,6 +71,7 @@ const Blog = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  const navigate = useNavigate();
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -84,12 +86,16 @@ const Blog = () => {
     }
   };
 
-  const filteredPosts = searchQuery 
-    ? blogPosts.filter(post => 
-        post.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-        post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        post.category.toLowerCase().includes(searchQuery.toLowerCase())
-      )
+  const handleReadMore = (postId: number) => {
+    navigate(`/blog/${postId}`);
+  };
+
+  const filteredPosts = searchQuery
+    ? blogPosts.filter(post =>
+      post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.category.toLowerCase().includes(searchQuery.toLowerCase())
+    )
     : blogPosts;
 
   return (
@@ -156,9 +162,9 @@ const Blog = () => {
                 className="bg-white/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 group"
               >
                 <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src={post.image} 
-                    alt={post.title} 
+                  <img
+                    src={post.image}
+                    alt={post.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute top-4 right-4 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-3 py-1 rounded-full text-sm font-medium">
@@ -178,16 +184,19 @@ const Blog = () => {
                   <div className="mt-auto flex items-center justify-between">
                     <div className="flex items-center">
                       <div className="w-8 h-8 rounded-full overflow-hidden mr-2 ring-2 ring-orange-500/20">
-                        <img 
-                          src={`https://i.pravatar.cc/150?u=${post.id}`} 
-                          alt={post.author} 
+                        <img
+                          src={`https://i.pravatar.cc/150?u=${post.id}`}
+                          alt={post.author}
                           className="w-full h-full object-cover"
                         />
                       </div>
                       <span className="text-sm font-medium">{post.author}</span>
                     </div>
-                    <button className="text-orange-500 font-medium hover:text-orange-600 transition-colors flex items-center group">
-                      Read More 
+                    <button
+                      onClick={() => handleReadMore(post.id)}
+                      className="text-orange-500 font-medium hover:text-orange-600 transition-colors flex items-center group"
+                    >
+                      Read More
                       <ArrowRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform duration-300" />
                     </button>
                   </div>
@@ -204,7 +213,7 @@ const Blog = () => {
           <div className="absolute top-20 left-20 w-64 h-64 bg-orange-500/20 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-20 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl"></div>
         </div>
-        
+
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-medium mb-8">
             <Sparkles className="w-4 h-4" />
@@ -225,8 +234,8 @@ const Blog = () => {
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className="group bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-bold px-6 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/30 flex items-center justify-center gap-2 whitespace-nowrap"
             >
               <MessageSquare className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
@@ -234,7 +243,7 @@ const Blog = () => {
             </button>
           </form>
           {subscribed && (
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               className="text-orange-400 mt-4"
