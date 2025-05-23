@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Search, ArrowRight, Sparkles, MessageSquare, User2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 // Blog post data
 const blogPosts = [
@@ -99,158 +100,182 @@ const Blog = () => {
     : blogPosts;
 
   return (
-    <div className="pt-32">
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-50">
-          <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-orange-400/10 to-pink-400/10 rounded-full blur-2xl"></div>
-          <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-2xl"></div>
-        </div>
-        <div className="container-custom relative">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <Sparkles className="w-4 h-4" />
-              Blog & Insights
-            </div>
-            <h1 className="text-4xl md:text-6xl font-black mb-6">
-              <span className="bg-gradient-to-r from-gray-900 via-purple-900 to-orange-900 bg-clip-text text-transparent">
-                Latest Insights
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">
-                From Our Experts
-              </span>
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Discover the latest trends, tips, and thought leadership in technology and digital solutions.
-            </p>
-          </div>
+    <>
+      <Helmet>
+        <title>Blog & Insights | Optifusion Technologies</title>
+        <meta name="description" content="Discover the latest insights, trends, and expert analysis in technology, digital marketing, web development, and content strategy. Stay informed with Optifusion Technologies' expert blog." />
+        <meta name="keywords" content="technology blog, digital marketing insights, web development trends, content strategy, tech news, digital solutions, industry insights" />
 
-          {/* Search Bar */}
-          <div className="max-w-2xl mx-auto mb-12">
-            <form onSubmit={handleSearch} className="relative">
-              <input
-                type="text"
-                placeholder="Search articles..."
-                className="w-full bg-white/80 backdrop-blur-sm border border-gray-100 rounded-xl py-4 pl-12 pr-4 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500/20 transition-all duration-300"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-              <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
-                <Search size={20} />
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://optifusion.tech/blog" />
+        <meta property="og:title" content="Blog & Insights | Optifusion Technologies" />
+        <meta property="og:description" content="Discover the latest insights, trends, and expert analysis in technology, digital marketing, web development, and content strategy." />
+        <meta property="og:image" content="https://optifusion.tech/blog-og-image.jpg" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://optifusion.tech/blog" />
+        <meta property="twitter:title" content="Blog & Insights | Optifusion Technologies" />
+        <meta property="twitter:description" content="Discover the latest insights, trends, and expert analysis in technology, digital marketing, web development, and content strategy." />
+        <meta property="twitter:image" content="https://optifusion.tech/blog-og-image.jpg" />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://optifusion.tech/blog" />
+      </Helmet>
+      <div className="pt-32">
+        {/* Hero Section */}
+        <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-50">
+            <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-orange-400/10 to-pink-400/10 rounded-full blur-2xl"></div>
+            <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-2xl"></div>
+          </div>
+          <div className="container-custom relative">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+                <Sparkles className="w-4 h-4" />
+                Blog & Insights
               </div>
-            </form>
-          </div>
-        </div>
-      </section>
+              <h1 className="text-4xl md:text-6xl font-black mb-6">
+                <span className="bg-gradient-to-r from-gray-900 via-purple-900 to-orange-900 bg-clip-text text-transparent">
+                  Latest Insights
+                </span>
+                <br />
+                <span className="bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">
+                  From Our Experts
+                </span>
+              </h1>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Discover the latest trends, tips, and thought leadership in technology and digital solutions.
+              </p>
+            </div>
 
-      {/* Blog Posts Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-50">
-          <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-r from-orange-400/10 to-pink-400/10 rounded-full blur-2xl"></div>
-          <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-2xl"></div>
-        </div>
-        <div className="container-custom relative">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPosts.map((post, index) => (
-              <motion.article
-                key={post.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 group"
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute top-4 right-4 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    {post.category}
-                  </div>
+            {/* Search Bar */}
+            <div className="max-w-2xl mx-auto mb-12">
+              <form onSubmit={handleSearch} className="relative">
+                <input
+                  type="text"
+                  placeholder="Search articles..."
+                  className="w-full bg-white/80 backdrop-blur-sm border border-gray-100 rounded-xl py-4 pl-12 pr-4 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500/20 transition-all duration-300"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+                  <Search size={20} />
                 </div>
-                <div className="p-6 flex-grow flex flex-col">
-                  <div className="flex items-center text-sm text-gray-500 mb-3">
-                    <span>{post.date}</span>
-                    <span className="mx-2">•</span>
-                    <span>{post.readTime}</span>
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-orange-500 transition-colors">
-                    {post.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4">{post.excerpt}</p>
-                  <div className="mt-auto flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <div>
-                        <User2 size={19} />
-                      </div>
+              </form>
+            </div>
+          </div>
+        </section>
 
-                      <span className="text-sm font-medium">{post.author}</span>
+        {/* Blog Posts Section */}
+        <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-50">
+            <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-r from-orange-400/10 to-pink-400/10 rounded-full blur-2xl"></div>
+            <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-2xl"></div>
+          </div>
+          <div className="container-custom relative">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredPosts.map((post, index) => (
+                <motion.article
+                  key={post.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="bg-white/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 group"
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute top-4 right-4 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                      {post.category}
                     </div>
-                    <button
-                      onClick={() => handleReadMore(post.id)}
-                      className="text-orange-500 font-medium hover:text-orange-600 transition-colors flex items-center group"
-                    >
-                      Read More
-                      <ArrowRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform duration-300" />
-                    </button>
                   </div>
-                </div>
-              </motion.article>
-            ))}
-          </div>
-        </div>
-      </section>
+                  <div className="p-6 flex-grow flex flex-col">
+                    <div className="flex items-center text-sm text-gray-500 mb-3">
+                      <span>{post.date}</span>
+                      <span className="mx-2">•</span>
+                      <span>{post.readTime}</span>
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 group-hover:text-orange-500 transition-colors">
+                      {post.title}
+                    </h3>
+                    <p className="text-gray-600 mb-4">{post.excerpt}</p>
+                    <div className="mt-auto flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <div>
+                          <User2 size={19} />
+                        </div>
 
-      {/* Newsletter Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-orange-500/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-20 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-medium mb-8">
-            <Sparkles className="w-4 h-4" />
-            Stay Updated
+                        <span className="text-sm font-medium">{post.author}</span>
+                      </div>
+                      <button
+                        onClick={() => handleReadMore(post.id)}
+                        className="text-orange-500 font-medium hover:text-orange-600 transition-colors flex items-center group"
+                      >
+                        Read More
+                        <ArrowRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform duration-300" />
+                      </button>
+                    </div>
+                  </div>
+                </motion.article>
+              ))}
+            </div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Subscribe to Our Newsletter
-          </h2>
-          <p className="text-xl text-gray-300 mb-10 leading-relaxed">
-            Stay updated with our latest articles, industry insights, and company news.
-          </p>
-          <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
-            <input
-              type="email"
-              placeholder="Your email address"
-              className="flex-grow bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl py-4 px-6 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500/20 transition-all duration-300"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <button
-              type="submit"
-              className="group bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-bold px-6 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/30 flex items-center justify-center gap-2 whitespace-nowrap"
-            >
-              <MessageSquare className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
-              Subscribe Now
-            </button>
-          </form>
-          {subscribed && (
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-orange-400 mt-4"
-            >
-              Thanks for subscribing! We'll keep you updated.
-            </motion.p>
-          )}
-        </div>
-      </section>
-    </div>
+        </section>
+
+        {/* Newsletter Section */}
+        <section className="py-20 bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
+          <div className="absolute inset-0">
+            <div className="absolute top-20 left-20 w-64 h-64 bg-orange-500/20 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-20 right-20 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl"></div>
+          </div>
+
+          <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-medium mb-8">
+              <Sparkles className="w-4 h-4" />
+              Stay Updated
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Subscribe to Our Newsletter
+            </h2>
+            <p className="text-xl text-gray-300 mb-10 leading-relaxed">
+              Stay updated with our latest articles, industry insights, and company news.
+            </p>
+            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+              <input
+                type="email"
+                placeholder="Your email address"
+                className="flex-grow bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl py-4 px-6 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500/20 transition-all duration-300"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <button
+                type="submit"
+                className="group bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-bold px-6 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/30 flex items-center justify-center gap-2 whitespace-nowrap"
+              >
+                <MessageSquare className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                Subscribe Now
+              </button>
+            </form>
+            {subscribed && (
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-orange-400 mt-4"
+              >
+                Thanks for subscribing! We'll keep you updated.
+              </motion.p>
+            )}
+          </div>
+        </section>
+      </div>
+    </>
   );
 };
 
