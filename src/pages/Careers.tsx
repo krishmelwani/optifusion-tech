@@ -184,7 +184,7 @@ const Careers = () => {
               className="rounded-xl overflow-hidden shadow-xl"
             >
               <img 
-                src="https://images.pexels.com/photos/7988079/pexels-photo-7988079.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                src="/assets/careers-page-pic.jpeg" 
                 alt="Team at work" 
                 className="w-full h-full object-cover"
               />
