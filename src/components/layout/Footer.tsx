@@ -117,7 +117,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center space-x-3 group">
                 <Mail className="text-blue-400 group-hover:scale-110 transition-transform duration-300" size={18} />
-                <span className="text-gray-400">info@optifusiontechnologies.in</span>
+                <span className="text-gray-400">info@optifusiontechnologies.com</span>
               </li>
             </ul>
           </div>
