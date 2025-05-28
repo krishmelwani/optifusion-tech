@@ -43,7 +43,7 @@ export default function ServicesDetailed() {
           <div className="relative w-full max-w-md">
             <div className="rounded-lg overflow-hidden shadow-xl">
               <img
-                src="https://bootcamprankings.com/wp-content/uploads/2021/01/How-to-Learn-Web-Development-768x763.png"
+                src="assets\webdev-service.png"
                 alt="Web Development"
                 className="object-cover"
               />

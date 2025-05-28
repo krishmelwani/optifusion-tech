@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Briefcase, Code, PenTool, BarChart, ChevronRight, Filter, Palette, Users, Sparkles, MessageSquare } from 'lucide-react';
 
 // Job listings data
-const jobListings = [          
+const jobListings = [
   {
     id: 1,
     title: 'Business Development Manager',
@@ -110,11 +110,11 @@ const jobListings = [
 
 const Careers = () => {
   const [department, setDepartment] = useState('All');
-  
-  const filteredJobs = department === 'All' 
-    ? jobListings 
+
+  const filteredJobs = department === 'All'
+    ? jobListings
     : jobListings.filter(job => job.department === department);
-  
+
   return (
     <div className="pt-32">
       {/* Hero Section */}
@@ -142,7 +142,7 @@ const Careers = () => {
               Join our team of innovators and help shape the future of digital solutions.
             </p>
           </div>
-          
+
           {/* Culture Section */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
             <motion.div
@@ -175,7 +175,7 @@ const Careers = () => {
                 ))}
               </div>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -183,16 +183,16 @@ const Careers = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="rounded-xl overflow-hidden shadow-xl"
             >
-              <img 
-                src="/assets/careers-page-pic.jpeg" 
-                alt="Team at work" 
+              <img
+                src="/assets/careers-page-pic.jpeg"
+                alt="Team at work"
                 className="w-full h-full object-cover"
               />
             </motion.div>
           </div>
         </div>
       </section>
-      
+
       {/* Job Listings Section */}
       <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
         <div className="absolute inset-0 opacity-50">
@@ -215,7 +215,7 @@ const Careers = () => {
               </span>
             </h2>
           </div>
-          
+
           <div className="flex flex-wrap items-center justify-center mb-8 gap-3">
             <div className="text-gray-600 flex items-center">
               <Filter size={18} className="mr-2" />
@@ -224,18 +224,17 @@ const Careers = () => {
             {['All', 'Engineering', 'Design', 'Marketing', 'Operations'].map((dep) => (
               <button
                 key={dep}
-                className={`px-4 py-2 rounded-full text-sm transition-all duration-300 ${
-                  department === dep
+                className={`px-4 py-2 rounded-full text-sm transition-all duration-300 ${department === dep
                     ? 'bg-gradient-to-r from-orange-500 to-pink-500 text-white shadow-lg shadow-orange-500/30'
                     : 'bg-white/80 backdrop-blur-sm text-gray-700 hover:bg-gray-100 border border-gray-100'
-                }`}
+                  }`}
                 onClick={() => setDepartment(dep)}
               >
                 {dep}
               </button>
             ))}
           </div>
-          
+
           <div className="space-y-6">
             {filteredJobs.map((job, index) => (
               <motion.div
@@ -266,7 +265,7 @@ const Careers = () => {
                       </div>
                     </div>
                     <a
-                      href="mailto:info@optifusiontechnologies.in"
+                      href="mailto:info@optifusiontechnologies.com"
                       className="group bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-bold px-6 py-3 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/30 flex items-center gap-2 mt-4 sm:mt-0"
                     >
                       Apply Now
@@ -289,7 +288,7 @@ const Careers = () => {
               </motion.div>
             ))}
           </div>
-          
+
           {filteredJobs.length === 0 && (
             <div className="text-center py-12 bg-white/80 backdrop-blur-sm rounded-xl shadow-md border border-gray-100">
               <p className="text-gray-600">No open positions in this department currently. Please check back later or explore other departments.</p>
@@ -297,7 +296,7 @@ const Careers = () => {
           )}
         </div>
       </section>
-      
+
       {/* Benefits Section */}
       <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
         <div className="absolute inset-0 opacity-50">
@@ -320,7 +319,7 @@ const Careers = () => {
               </span>
             </h2>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
@@ -363,14 +362,14 @@ const Careers = () => {
           </div>
         </div>
       </section>
-      
+
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-20 left-20 w-64 h-64 bg-orange-500/20 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-20 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl"></div>
         </div>
-        
+
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-medium mb-8">
             <Sparkles className="w-4 h-4" />
@@ -383,8 +382,8 @@ const Careers = () => {
             We're always looking for talented individuals to join our team. Send us your resume, and we'll consider you for future opportunities.
           </p>
           <div className="flex justify-center">
-            <a 
-              href="mailto:hr@optifusiontechnologies.in"
+            <a
+              href="mailto:hr@optifusiontechnologies.com"
               className="group bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-bold px-6 py-3 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/30 flex items-center gap-2"
             >
               <MessageSquare className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
